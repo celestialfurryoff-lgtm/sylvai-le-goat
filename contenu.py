@@ -229,6 +229,33 @@ FINS = [
     "La mission est importante pour la planète.",
 ]
 
+IMAGES = [
+    {
+        "legende": "Sylvain Durif jouant de la flûte (2014)",
+        "auteur": "ThimGui",
+        "licence": "CC0",
+        "url": "https://commons.wikimedia.org/wiki/File:Sylvain_Durif.jpg",
+    },
+    {
+        "legende": "Sur une aire d'autoroute, en 2013",
+        "auteur": "chatzefratz",
+        "licence": "CC BY 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Sylvain_Durif,_sur_une_aire_d%27autoroute,_en_2013.png",
+    },
+    {
+        "legende": "Jouant de la flûte (2022)",
+        "auteur": "La Dépêche",
+        "licence": "CC0",
+        "url": "https://commons.wikimedia.org/wiki/File:Sylvain_Durif_jouant_de_la_fl%C3%BBte.jpg",
+    },
+    {
+        "legende": "Logo de campagne présidentielle 2027",
+        "auteur": "Ministère du Cringe",
+        "licence": "Domaine public",
+        "url": "https://commons.wikimedia.org/wiki/File:Logo_Sylvain_Durif.png",
+    },
+]
+
 SOURCES = [
     ("Wikipédia — Sylvain Durif", "https://fr.wikipedia.org/wiki/Sylvain_Durif"),
     ("Vice — La vie et l'œuvre du Christ Cosmique", "https://www.vice.com/fr/article/la-vie-et-l-oeuvre-du-christ-cosmique-sylvain-durif/"),

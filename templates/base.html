@@ -4,7 +4,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block titre %}Sylvain Durif — Le Christ cosmique{% endblock %}</title>
-    <meta name="description" content="Dossier documenté et parodique sur Sylvain Durif, alias le Christ cosmique : ses titres, ses pouvoirs revendiqués, ses répliques et ses projets.">
+    <meta name="description" content="{% block description %}Dossier documenté et parodique sur Sylvain Durif, alias le Christ cosmique : ses titres, ses pouvoirs revendiqués, ses répliques et ses projets.{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}Sylvain Durif, Christ cosmique, Grand Monarque, Bugarach, vidéaste français, mème internet, présidentielle 2027{% endblock %}">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="author" content="Dossier Durif">
+    <meta name="theme-color" content="#07070e">
+    <link rel="canonical" href="{{ url_base }}{{ request.path }}">
+    <link rel="alternate" hreflang="fr" href="{{ url_base }}{{ request.path }}">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ url_base }}/sitemap.xml">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dossier Durif">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:title" content="{{ self.titre() }}">
+    <meta property="og:description" content="{{ self.description() }}">
+    <meta property="og:url" content="{{ url_base }}{{ request.path }}">
+    <meta property="og:image" content="{{ url_for('static', filename='images/durif-portrait-2014.jpg', _external=True) }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ self.titre() }}">
+    <meta name="twitter:description" content="{{ self.description() }}">
+    <meta name="twitter:image" content="{{ url_for('static', filename='images/durif-portrait-2014.jpg', _external=True) }}">
+    <script type="application/ld+json">{{ schema | tojson }}</script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -56,6 +77,14 @@
                 <ul class="footer-sources">
                     {% for nom, url in sources %}
                         <li><a href="{{ url }}" target="_blank" rel="noopener noreferrer">{{ nom }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div>
+                <p class="footer-titre">CRÉDITS IMAGES</p>
+                <ul class="footer-sources">
+                    {% for image in images %}
+                        <li><a href="{{ image.url }}" target="_blank" rel="noopener noreferrer">{{ image.legende }} — {{ image.auteur }} ({{ image.licence }})</a></li>
                     {% endfor %}
                 </ul>
             </div>

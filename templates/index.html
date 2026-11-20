@@ -1,5 +1,7 @@
 {% extends "base.html" %}
-{% block titre %}Sylvain Durif — Le Christ cosmique{% endblock %}
+{% block titre %}Sylvain Durif — Le Christ cosmique | Dossier documentaire{% endblock %}
+{% block description %}Dossier documentaire et parodique sur Sylvain Durif, alias le Christ cosmique : ses titres, ses pouvoirs revendiqués, ses répliques cultes, son programme 2027 et sa chronologie, sources à l'appui.{% endblock %}
+{% block keywords %}Sylvain Durif, Christ cosmique, Grand Monarque, Oriana, Bugarach, vidéaste français, mème internet, hallucination collective, présidentielle 2027, cité de lumière{% endblock %}
 {% block contenu %}
 
 <section class="hero">
@@ -8,20 +10,27 @@
         <div class="vaisseau-faisceau"></div>
     </div>
 
-    <p class="eyebrow">ARCHIVE N°001 · NANTUA, 23 AOÛT 1969</p>
-    <h1>SYLVAIN<br><span>DURIF</span></h1>
-    <p class="sous-titre">LE CHRIST COSMIQUE · LE GRAND MONARQUE · LE MESSIE</p>
+    <div class="hero-grille">
+        <div class="hero-texte">
+            <p class="eyebrow">ARCHIVE N°001 · NANTUA, 23 AOÛT 1969</p>
+            <h1>SYLVAIN<br><span>DURIF</span></h1>
+            <p class="sous-titre">LE CHRIST COSMIQUE · LE GRAND MONARQUE · LE MESSIE</p>
+            <div class="hero-actions">
+                <a class="btn btn-plein" href="{{ url_for('pouvoirs') }}">Explorer ses pouvoirs →</a>
+                <a class="btn" href="{{ url_for('chronologie') }}">Lire la chronologie</a>
+            </div>
+        </div>
+        <figure class="hero-portrait">
+            <img src="{{ url_for('static', filename='images/durif-portrait-2014.jpg') }}" alt="Sylvain Durif jouant de la flûte, en 2014" width="421" height="442">
+            <figcaption>PORTRAIT · 2014 <span>ThimGui · CC0 · Wikimedia Commons</span></figcaption>
+        </figure>
+    </div>
 
     <div class="hero-carte">
         <p class="hero-carte-label">SIGNE REÇU</p>
         <blockquote id="citation-hero">« {{ citation.texte }} »</blockquote>
         <p class="hero-carte-source">{{ citation.titre }} — {{ citation.source }}</p>
         <button class="btn" id="nouvelle-citation" type="button">Recevoir un autre signal</button>
-    </div>
-
-    <div class="hero-actions">
-        <a class="btn btn-plein" href="{{ url_for('pouvoirs') }}">Explorer ses pouvoirs →</a>
-        <a class="btn" href="{{ url_for('chronologie') }}">Lire la chronologie</a>
     </div>
 </section>
 
@@ -34,6 +43,10 @@
         <p>Sylvain Pierre Durif, né en 1969 à Nantua, vit dans l'Aude près de Bugarach. En décembre 2012, alors que le village est au centre des prédictions de fin du monde, il déclare à <em>Le Parisien</em> : « J'incarne l'énergie du Christ cosmique ». La phrase fait le tour du web francophone.</p>
         <p>Ses vidéos mêlent ésotérisme, récits d'abduction, théories du complot et propositions politiques. Amixem lui consacre « Analysons l'homme le plus perché du monde », Antoine Daniel l'intègre à une vidéo de près de 17 millions de vues. Fin 2023, un extrait avec des « serpents et des singes danser » devient un mème TikTok : <strong>« hallucination collective »</strong>.</p>
     </div>
+    <figure class="visuel visuel-large">
+        <img src="{{ url_for('static', filename='images/durif-autoroute-2013.png') }}" alt="Sylvain Durif sur une aire d'autoroute en 2013" width="960" height="540" loading="lazy">
+        <figcaption>Sylvain Durif sur une aire d'autoroute en 2013, racontant son voyage à Jérusalem et annonçant une marche pacifique. <a href="https://commons.wikimedia.org/wiki/File:Sylvain_Durif,_sur_une_aire_d%27autoroute,_en_2013.png" target="_blank" rel="noopener noreferrer">chatzefratz · CC BY 3.0 · Wikimedia Commons ↗</a></figcaption>
+    </figure>
     <div class="chiffres">
         <div class="chiffre"><b>1969</b><span>Naissance à Nantua</span></div>
         <div class="chiffre"><b>7</b><span>Voix aux municipales de 2014</span></div>
