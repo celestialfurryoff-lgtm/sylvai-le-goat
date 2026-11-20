@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block titre %}Sylvain Durif — Le Christ cosmique{% endblock %}
+{% block contenu %}
+
+<section class="hero">
+    <div class="vaisseau" aria-hidden="true">
+        <div class="vaisseau-corps"></div>
+        <div class="vaisseau-faisceau"></div>
+    </div>
+
+    <p class="eyebrow">ARCHIVE N°001 · NANTUA, 23 AOÛT 1969</p>
+    <h1>SYLVAIN<br><span>DURIF</span></h1>
+    <p class="sous-titre">LE CHRIST COSMIQUE · LE GRAND MONARQUE · LE MESSIE</p>
+
+    <div class="hero-carte">
+        <p class="hero-carte-label">SIGNE REÇU</p>
+        <blockquote id="citation-hero">« {{ citation.texte }} »</blockquote>
+        <p class="hero-carte-source">{{ citation.titre }} — {{ citation.source }}</p>
+        <button class="btn" id="nouvelle-citation" type="button">Recevoir un autre signal</button>
+    </div>
+
+    <div class="hero-actions">
+        <a class="btn btn-plein" href="{{ url_for('pouvoirs') }}">Explorer ses pouvoirs →</a>
+        <a class="btn" href="{{ url_for('chronologie') }}">Lire la chronologie</a>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-tete">
+        <p class="numero">01 / L'HOMME</p>
+        <h2>Un vidéaste devenu phénomène internet</h2>
+    </div>
+    <div class="deux-colonnes">
+        <p>Sylvain Pierre Durif, né en 1969 à Nantua, vit dans l'Aude près de Bugarach. En décembre 2012, alors que le village est au centre des prédictions de fin du monde, il déclare à <em>Le Parisien</em> : « J'incarne l'énergie du Christ cosmique ». La phrase fait le tour du web francophone.</p>
+        <p>Ses vidéos mêlent ésotérisme, récits d'abduction, théories du complot et propositions politiques. Amixem lui consacre « Analysons l'homme le plus perché du monde », Antoine Daniel l'intègre à une vidéo de près de 17 millions de vues. Fin 2023, un extrait avec des « serpents et des singes danser » devient un mème TikTok : <strong>« hallucination collective »</strong>.</p>
+    </div>
+    <div class="chiffres">
+        <div class="chiffre"><b>1969</b><span>Naissance à Nantua</span></div>
+        <div class="chiffre"><b>7</b><span>Voix aux municipales de 2014</span></div>
+        <div class="chiffre"><b>4 M+</b><span>Vues sur sa vidéo la plus regardée</span></div>
+        <div class="chiffre"><b>13</b><span>Répliques cultes recensées</span></div>
+    </div>
+</section>
+
+<section class="section section-sombre">
+    <div class="section-tete">
+        <p class="numero">02 / LES POUVOIRS (REVENDIQUÉS)</p>
+        <h2>Ce qu'il dit savoir faire</h2>
+        <p class="section-intro">Bilocation, abduction, guérison, précognition, rugissement de lion… Voici ses affirmations, telles que relayées par la presse.</p>
+    </div>
+    <div class="cartes">
+        {% for pouvoir in pouvoirs %}
+            <article class="carte">
+                <span class="carte-icone">{{ pouvoir.icone }}</span>
+                <h3>{{ pouvoir.titre }}</h3>
+                <p>{{ pouvoir.texte }}</p>
+                <span class="source">{{ pouvoir.source }}</span>
+            </article>
+        {% endfor %}
+    </div>
+    <a class="lien-suite" href="{{ url_for('pouvoirs') }}">Voir les 10 pouvoirs →</a>
+</section>
+
+<section class="section generateur">
+    <div class="generateur-carte">
+        <p class="numero">03 / ÉMETTEUR COSMIQUE</p>
+        <h2>Générez votre proclamation</h2>
+        <p class="section-intro">Un assemblage de ses titres et de ses répliques les plus connues. Aucune affirmation générée ici n'est nouvelle : tout vient du dossier.</p>
+        <p id="proclamation" class="proclamation">Appuyez sur le bouton pour capter le signal…</p>
+        <button class="btn btn-plein" id="generer-proclamation" type="button">✳ Émettre une proclamation</button>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-tete">
+        <p class="numero">04 / REPÈRES</p>
+        <h2>Les derniers jalons</h2>
+    </div>
+    <div class="mini-chrono">
+        {% for annee, titre, texte in chronologie %}
+            <article>
+                <span class="annee">{{ annee }}</span>
+                <h3>{{ titre }}</h3>
+                <p>{{ texte }}</p>
+            </article>
+        {% endfor %}
+    </div>
+    <a class="lien-suite" href="{{ url_for('chronologie') }}">Chronologie complète →</a>
+</section>
+
+{% endblock %}

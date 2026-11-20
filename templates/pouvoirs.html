@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block titre %}Ses pouvoirs — Sylvain Durif{% endblock %}
+{% block contenu %}
+
+<section class="page-tete">
+    <p class="eyebrow">DOSSIER · 02</p>
+    <h1>LES POUVOIRS <span>REVENDIQUÉS</span></h1>
+    <p class="page-intro">« J'ai la capacité d'aller n'importe où dans le cosmos, et la barrière physique n'a aucune importance pour moi. » — Le Parisien, décembre 2012.</p>
+    <p class="attention">Il s'agit d'affirmations de Sylvain Durif, rapportées par la presse ou tirées de ses vidéos. Elles sont présentées ici à titre documentaire et humoristique.</p>
+</section>
+
+<section class="section">
+    <div class="cartes cartes-denses">
+        {% for pouvoir in pouvoirs %}
+            <article class="carte">
+                <span class="carte-icone">{{ pouvoir.icone }}</span>
+                <h3>{{ pouvoir.titre }}</h3>
+                <p>{{ pouvoir.texte }}</p>
+                <span class="source">{{ pouvoir.source }}</span>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="section section-sombre">
+    <div class="section-tete">
+        <p class="numero">HORS CATÉGORIE</p>
+        <h2>La palette des identités</h2>
+    </div>
+    <div class="nuage">
+        <span>Grand Monarque</span><span>Christ cosmique</span><span>Messie</span>
+        <span>Roi</span><span>Pape Pierre</span><span>Oriana</span>
+        <span>Sylvanus</span><span>Homme Vert</span><span>Merlin</span>
+        <span>Président d'Elvita</span><span>Médium</span><span>Guérisseur</span>
+    </div>
+    <p class="section-intro">Autant de titres qu'il s'est attribués, et qui reviennent dans ses annonces de candidature, notamment en 2016 et 2026.</p>
+</section>
+
+{% endblock %}

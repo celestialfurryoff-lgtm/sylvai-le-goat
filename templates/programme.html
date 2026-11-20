@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block titre %}Programme 2027 — Sylvain Durif{% endblock %}
+{% block contenu %}
+
+<section class="page-tete">
+    <p class="eyebrow">DOSSIER · 03</p>
+    <h1>PROGRAMME <span>2027</span></h1>
+    <p class="page-intro">Le 23 août 2026, il annonce sa candidature à l'élection présidentielle. Sa vidéo dépasse 800 000 vues en quelques jours.</p>
+</section>
+
+<section class="section parrainage">
+    <div class="parrainage-carte">
+        <div>
+            <p class="numero">LE GRAND OBSTACLE</p>
+            <h2>500 parrainages</h2>
+            <p>Pour être officiellement candidat, il lui faut être présenté par 500 élus avant le <strong>12 mars 2027</strong>. En 2017, il n'en avait obtenu aucun. En 2014, aux municipales d'Arques, il avait récolté 7 voix.</p>
+        </div>
+        <div class="compteur">
+            <span class="compteur-nombre">0<small>/500</small></span>
+            <div class="jauge"><div class="jauge-remplissage"></div></div>
+            <span class="compteur-legende">parrainages confirmés à ce jour</span>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-tete">
+        <p class="numero">SES MESURES ANNONCÉES</p>
+        <h2>Le programme</h2>
+        <p class="section-intro">Mesures annoncées et relayées par la presse et les réseaux sociaux en 2026, présentées ici sans adhésion ni commentaire.</p>
+    </div>
+    <div class="cartes">
+        {% for mesure in programme %}
+            <article class="carte">
+                <span class="carte-icone">{{ mesure.icone }}</span>
+                <h3>{{ mesure.titre }}</h3>
+                <p>{{ mesure.texte }}</p>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="section section-sombre">
+    <div class="section-tete">
+        <p class="numero">LA CITÉ DE LUMIÈRE</p>
+        <h2>Le projet de société</h2>
+    </div>
+    <div class="deux-colonnes">
+        <p>Depuis 2016, il porte un projet de « cité de lumière » : un centre de ressourcement et de bien-être où des personnes du monde entier apprendraient à « se guérir par elles-mêmes ». Il l'imaginait dans la haute vallée de l'Aude, au Brésil et au Québec.</p>
+        <p>En 2022, il annonce vouloir racheter le Fort Queyras (Hautes-Alpes) pour 221 millions d'euros et y installer le « siège du Cosmos ». Sa profession de foi de 2014 prévoyait déjà une cellule mobile de médecine naturelle et un pôle de recherche sur la communication numérique et « télépathique ».</p>
+    </div>
+</section>
+
+{% endblock %}
