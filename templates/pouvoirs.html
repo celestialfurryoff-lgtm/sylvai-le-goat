@@ -1,19 +1,19 @@
 {% extends "base.html" %}
-{% block titre %}Les pouvoirs revendiqués de Sylvain Durif — Christ cosmique{% endblock %}
-{% block description %}Les pouvoirs que Sylvain Durif, le Christ cosmique, dit posséder : bilocation, abduction par un vaisseau de la Vierge Marie, précognition, guérison, illumination des cinq Bouddhas, Merlin l'enchanteur et cités d'Agartha.{% endblock %}
-{% block keywords %}Sylvain Durif pouvoirs, Christ cosmique bilocation, vaisseau Vierge Marie, Aldébaran, précognition, chakra, Homme Vert, Merlin l'enchanteur, Agartha, reptiliens{% endblock %}
+{% block titre %}{{ meta.pouvoirs.titre }}{% endblock %}
+{% block description %}{{ meta.pouvoirs.description }}{% endblock %}
+{% block keywords %}{{ meta.pouvoirs.keywords }}{% endblock %}
 {% block contenu %}
 
 <section class="page-tete">
-    <p class="eyebrow">DOSSIER · 02</p>
-    <h1>LES POUVOIRS <span>REVENDIQUÉS</span></h1>
-    <p class="page-intro">« J'ai la capacité d'aller n'importe où dans le cosmos, et la barrière physique n'a aucune importance pour moi. » — Le Parisien, décembre 2012.</p>
-    <p class="attention">Il s'agit d'affirmations de Sylvain Durif, rapportées par la presse ou tirées de ses vidéos. Elles sont présentées ici à titre documentaire et humoristique.</p>
+    <p class="eyebrow">{{ t.pouvoirs_eyebrow }}</p>
+    <h1>{{ t.pouvoirs_h1[0] }}<span>{{ t.pouvoirs_h1[1] }}</span></h1>
+    <p class="page-intro">{{ t.pouvoirs_intro }}</p>
+    <p class="attention">{{ t.pouvoirs_attention }}</p>
 </section>
 
 <figure class="visuel visuel-bandeau">
-    <img src="{{ url_for('static', filename='images/durif-flute-2022.jpg') }}" alt="Sylvain Durif jouant de la flûte en 2022" width="800" height="452" loading="lazy">
-    <figcaption>Sylvain Durif jouant de la flûte (2022). <a href="https://commons.wikimedia.org/wiki/File:Sylvain_Durif_jouant_de_la_fl%C3%BBte.jpg" target="_blank" rel="noopener noreferrer">La Dépêche · CC0 · Wikimedia Commons ↗</a></figcaption>
+    <img src="{{ url_for('static', filename='images/durif-flute-2022.jpg') }}" alt="{{ t.pouvoirs_img_alt }}" width="800" height="452" loading="lazy">
+    <figcaption>{{ t.pouvoirs_img_legende }}<a href="https://commons.wikimedia.org/wiki/File:Sylvain_Durif_jouant_de_la_fl%C3%BBte.jpg" target="_blank" rel="noopener noreferrer">La Dépêche · CC0 · Wikimedia Commons ↗</a></figcaption>
 </figure>
 
 <section class="section">
@@ -31,16 +31,15 @@
 
 <section class="section section-sombre">
     <div class="section-tete">
-        <p class="numero">HORS CATÉGORIE</p>
-        <h2>La palette des identités</h2>
+        <p class="numero">{{ t.pouvoirs_hors }}</p>
+        <h2>{{ t.pouvoirs_palette }}</h2>
     </div>
     <div class="nuage">
-        <span>Grand Monarque</span><span>Christ cosmique</span><span>Messie</span>
-        <span>Roi</span><span>Pape Pierre</span><span>Oriana</span>
-        <span>Sylvanus</span><span>Homme Vert</span><span>Merlin</span>
-        <span>Président d'Elvita</span><span>Médium</span><span>Guérisseur</span>
+        {% for identite in t.pouvoirs_nuage %}
+            <span>{{ identite }}</span>
+        {% endfor %}
     </div>
-    <p class="section-intro">Autant de titres qu'il s'est attribués, et qui reviennent dans ses annonces de candidature, notamment en 2016 et 2026.</p>
+    <p class="section-intro">{{ t.pouvoirs_nuage_intro }}</p>
 </section>
 
 {% endblock %}

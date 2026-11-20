@@ -1,27 +1,27 @@
 {% extends "base.html" %}
-{% block titre %}Les répliques cultes de Sylvain Durif — Christ cosmique{% endblock %}
-{% block description %}16 répliques et citations de Sylvain Durif, le Christ cosmique : « hallucination collective », vaisseaux de lumière dorée, serpents et singes sur le lit, Aldébaran et déclarations de candidature. Sources vidéo et presse.{% endblock %}
-{% block keywords %}Sylvain Durif citations, Christ cosmique répliques, hallucination collective, serpents et singes, vaisseaux de lumière dorée, Aldébaran, mème TikTok, La Soundboard{% endblock %}
+{% block titre %}{{ meta.paroles.titre }}{% endblock %}
+{% block description %}{{ meta.paroles.description }}{% endblock %}
+{% block keywords %}{{ meta.paroles.keywords }}{% endblock %}
 {% block contenu %}
 
 <section class="page-tete">
-    <p class="eyebrow">DOSSIER · 04</p>
-    <h1>LES <span>PAROLES</span></h1>
-    <p class="page-intro">Répliques tirées de ses vidéos (via La Soundboard, qui en recense 13), complétées par des propos rapportés par Le Parisien, L'Indépendant et 20 Minutes.</p>
+    <p class="eyebrow">{{ t.paroles_eyebrow }}</p>
+    <h1>{{ t.paroles_h1[0] }}<span>{{ t.paroles_h1[1] }}</span></h1>
+    <p class="page-intro">{{ t.paroles_intro }}</p>
 </section>
 
 <section class="section">
-    <div class="filtres" role="group" aria-label="Filtrer les paroles">
-        <button class="filtre actif" type="button" data-filtre="toutes">Toutes ({{ citations|length }})</button>
-        <button class="filtre" type="button" data-filtre="soundboard">Vidéos</button>
-        <button class="filtre" type="button" data-filtre="presse">Presse</button>
+    <div class="filtres" role="group" aria-label="{{ t.paroles_filtre_aria }}">
+        <button class="filtre actif" type="button" data-filtre="toutes">{{ t.paroles_toutes }} ({{ citations|length }})</button>
+        <button class="filtre" type="button" data-filtre="soundboard">{{ t.paroles_videos }}</button>
+        <button class="filtre" type="button" data-filtre="presse">{{ t.paroles_presse }}</button>
     </div>
     <div class="citations" id="liste-citations">
         {% for citation in citations %}
             {% set categorie = 'soundboard' if citation.source.startswith('La Soundboard') else 'presse' %}
             <article class="citation" data-categorie="{{ categorie }}">
                 <span class="citation-index">{{ '%02d'|format(loop.index) }}</span>
-                <blockquote>« {{ citation.texte }} »</blockquote>
+                <blockquote>{{ t.guillemets[0] }} {{ citation.texte }} {{ t.guillemets[1] }}</blockquote>
                 <p class="citation-meta">{{ citation.titre }} <span>·</span> {{ citation.source }}</p>
             </article>
         {% endfor %}
@@ -30,10 +30,10 @@
 
 <section class="section section-sombre">
     <div class="generateur-carte">
-        <p class="numero">BONUS</p>
-        <h2>Une réplique au hasard</h2>
-        <p id="citation-paroles" class="proclamation">Cliquez pour capter une parole…</p>
-        <button class="btn btn-plein" id="parole-hasard" type="button">✳ Nouvelle réplique</button>
+        <p class="numero">{{ t.paroles_bonus }}</p>
+        <h2>{{ t.paroles_bonus_titre }}</h2>
+        <p id="citation-paroles" class="proclamation">{{ t.paroles_bonus_placeholder }}</p>
+        <button class="btn btn-plein" id="parole-hasard" type="button">{{ t.paroles_bonus_btn }}</button>
     </div>
 </section>
 

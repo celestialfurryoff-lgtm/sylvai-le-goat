@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block titre %}{{ meta.jeux.titre }}{% endblock %}
+{% block description %}{{ meta.jeux.description }}{% endblock %}
+{% block keywords %}{{ meta.jeux.keywords }}{% endblock %}
+{% block contenu %}
+
+<section class="page-tete">
+    <p class="eyebrow">{{ t.jeux_eyebrow }}</p>
+    <h1>{{ t.jeux_h1[0] }}<span>{{ t.jeux_h1[1] }}</span></h1>
+    <p class="page-intro">{{ t.jeux_intro }}</p>
+</section>
+
+<section class="section">
+    <div class="section-tete">
+        <p class="numero">{{ t.bingo_titre }}</p>
+        <h2>Bingo cosmique</h2>
+        <p class="section-intro">{{ t.bingo_desc }}</p>
+    </div>
+    <div class="jeu" id="jeu-bingo" data-gagne="{{ t.bingo_gagne }}" data-deja="{{ t.bingo_deja }}">
+        <div class="jeu-controles">
+            <button class="btn btn-plein" id="bingo-tirer" type="button">{{ t.bingo_tirer }}</button>
+            <div class="jeu-etat">
+                <span class="jeu-label">{{ t.bingo_affiche }}</span>
+                <strong id="bingo-affiche">✳</strong>
+                <span class="jeu-label">{{ t.bingo_score }} : <b id="bingo-score">0</b></span>
+            </div>
+        </div>
+        <div class="bingo-grille" id="bingo-grille" role="grid" aria-label="{{ t.bingo_grille }}"></div>
+        <p class="jeu-message" id="bingo-message" aria-live="polite"></p>
+    </div>
+</section>
+
+<section class="section section-sombre">
+    <div class="section-tete">
+        <p class="numero">{{ t.quiz_titre }}</p>
+        <h2>Devine la réplique</h2>
+        <p class="section-intro">{{ t.quiz_desc }}</p>
+    </div>
+    <div class="jeu" id="jeu-quiz" data-resultat="{{ t.quiz_resultat }}" data-faux="{{ t.quiz_faux }}" data-fin="{{ t.quiz_fin }}" data-rejouer="{{ t.quiz_rejouer }}" data-suivant="{{ t.quiz_suivant }}">
+        <p class="jeu-label">{{ t.quiz_question }} <b id="quiz-index">1/8</b></p>
+        <blockquote class="quiz-citation" id="quiz-citation"></blockquote>
+        <div class="quiz-options" id="quiz-options"></div>
+        <div class="jeu-controles">
+            <p class="jeu-label">{{ t.quiz_score }} : <b id="quiz-score">0</b></p>
+            <button class="btn" id="quiz-suivant" type="button" hidden>{{ t.quiz_suivant }}</button>
+        </div>
+        <p class="jeu-message" id="quiz-message" aria-live="polite"></p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-tete">
+        <p class="numero">{{ t.parrainage_titre }}</p>
+        <h2>Course aux 500 parrainages</h2>
+        <p class="section-intro">{{ t.parrainage_desc }}</p>
+    </div>
+    <div class="jeu" id="jeu-parrainage" data-gagne="{{ t.parrainage_gagne }}" data-perte="{{ t.parrainage_perte }}" data-bonus="{{ t.parrainage_bonus }}">
+        <div class="compteur">
+            <span class="compteur-nombre" id="parrainage-nombre">0<small>/500</small></span>
+            <div class="jauge"><div class="jauge-remplissage" id="parrainage-jauge"></div></div>
+            <span class="compteur-legende">{{ t.parrainage_legende }}</span>
+        </div>
+        <button class="btn btn-plein" id="parrainage-btn" type="button">{{ t.parrainage_btn }}</button>
+        <p class="jeu-message" id="parrainage-message" aria-live="polite"></p>
+    </div>
+</section>
+
+<script id="donnees-jeux" type="application/json">{{ citations | tojson }}</script>
+
+{% endblock %}

@@ -25,9 +25,11 @@ pip install -r requirements.txt
 ## Structure
 
 ```
-app.py            routes Flask et API
-contenu.py        citations, pouvoirs, chronologie, programme, sources
-templates/        base.html + 5 pages
+app.py            routes Flask, API et sélection de langue
+contenu.py        contenus français (citations, pouvoirs, chronologie, programme, sources)
+traductions.py    interface, SEO et contenus anglais
+generer_statique.py  sitemap/robots statiques pour Vercel
+templates/        base.html + 7 pages
 static/css/       style.css
 static/js/        main.js
 static/images/    4 photos/logos téléchargés depuis Wikimedia Commons
@@ -42,7 +44,10 @@ static/images/    4 photos/logos téléchargés depuis Wikimedia Commons
 | `/programme` | Programme 2027 et compteur de parrainages |
 | `/paroles` | 16 répliques avec filtre Vidéos / Presse |
 | `/chronologie` | De 1969 à 2027 + sources |
-| `/api/citations` | Citation aléatoire en JSON |
+| `/jeux` | 3 mini-jeux : bingo, quiz, parrainages |
+| `/faq` | Questions fréquentes + données `FAQPage` |
+| `/en/...` | Les mêmes pages en anglais (`/en/jeux`, `/en/faq`, etc.) |
+| `/api/citations?lang=fr\|en` | Citation aléatoire en JSON |
 | `/api/pouvoirs` | Liste des pouvoirs en JSON |
 | `/api/proclamation` | Proclamation générée en JSON |
 | `/sante` | État du serveur |
@@ -57,9 +62,33 @@ Wikipédia, Vice (2017), Le Parisien (2012), L'Indépendant (2016), 20 Minutes (
 
 - Balises `<title>`, `meta description` et `meta keywords` propres à chaque page.
 - Balises Open Graph et Twitter Card (avec le portrait comme image de partage).
-- `link rel="canonical"`, `hreflang="fr"`, `robots` et lien vers le sitemap.
+- `link rel="canonical"`, `hreflang` fr/en/x-default, `robots` et lien vers le sitemap.
 - Données structurées JSON-LD (`WebSite` + `Person`) injectées dans le `<head>`.
-- `/robots.txt` et `/sitemap.xml` générés dynamiquement.
+- `/robots.txt` et `/sitemap.xml` générés dynamiquement (10 URL, 2 langues).
+
+## Bilinguisme FR / EN
+
+Un sélecteur **FR / EN** est présent dans l'en-tête. Il conserve la page courante :
+`/pouvoirs` → `/en/pouvoirs`, `/chronologie` → `/en/chronologie`, etc.
+
+- Les URL françaises restent inchangées ; les URL anglaises sont préfixées par `/en`.
+- Les contenus, l'interface, les métadonnées SEO et les données structurées changent de langue.
+- Les API acceptent `?lang=en` pour renvoyer les citations/proclamations traduites.
+- Ajouter une traduction : éditer `traductions.py` (`UI`, `META`, `*_EN`).
+
+### Déploiement Vercel + iframe IONOS
+
+Google doit indexer **l'URL Vercel**, pas la page IONOS qui contient l'iframe : celle-ci renvoie du HTML et provoque l'erreur « Sitemap is HTML ».
+
+1. Définir la variable d'environnement `SITE_URL=https://votre-projet.vercel.app` (sinon les liens canonical contiennent `localhost`).
+2. Si Vercel sert le site en statique, générer les fichiers à la racine puis les déployer :
+
+```powershell
+python generer_statique.py https://votre-projet.vercel.app
+```
+
+3. Soumettre `https://votre-projet.vercel.app/sitemap.xml` dans Search Console.
+4. Éviter l'iframe pour le SEO : l'idéal est un lien vers Vercel ou un domaine personnalisé pointant dessus.
 
 À soumettre dans Google Search Console : `https://votre-domaine.fr/sitemap.xml`.
 

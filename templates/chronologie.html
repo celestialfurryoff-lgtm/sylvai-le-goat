@@ -1,19 +1,26 @@
 {% extends "base.html" %}
-{% block titre %}Chronologie de Sylvain Durif, du Christ cosmique à la présidentielle 2027{% endblock %}
-{% block description %}Chronologie documentée de Sylvain Durif : naissance en 1969 à Nantua, Bugarach et le Christ cosmique en 2012, Elvita, municipales de 2014, cité de lumière, mème TikTok en 2023 et candidature présidentielle 2027.{% endblock %}
-{% block keywords %}Sylvain Durif chronologie, Bugarach 2012 fin du monde, Elvita, Christ cosmique 2012, municipales Arques 2014, Fort Queyras, hallucination collective TikTok, présidentielle 2027{% endblock %}
+{% block titre %}{{ meta.chronologie.titre }}{% endblock %}
+{% block description %}{{ meta.chronologie.description }}{% endblock %}
+{% block keywords %}{{ meta.chronologie.keywords }}{% endblock %}
 {% block contenu %}
 
 <section class="page-tete">
-    <p class="eyebrow">DOSSIER · 05</p>
-    <h1>CHRONOLOGIE <span>COSMIQUE</span></h1>
-    <p class="page-intro">De Nantua en 1969 à la campagne présidentielle de 2027 : les étapes documentées du personnage.</p>
+    <p class="eyebrow">{{ t.chrono_eyebrow }}</p>
+    <h1>{{ t.chrono_h1[0] }}<span>{{ t.chrono_h1[1] }}</span></h1>
+    <p class="page-intro">{{ t.chrono_intro }}</p>
 </section>
 
 <section class="section">
-    <div class="timeline">
+    <div class="filtres" role="group" aria-label="Filtrer la chronologie">
+        {% for valeur, libelle in t.chrono_filtres %}
+            <button class="filtre filtre-chrono{% if loop.first %} actif{% endif %}" type="button" data-periode="{{ valeur }}">{{ libelle }}</button>
+        {% endfor %}
+    </div>
+    <div class="timeline" id="liste-chronologie">
         {% for annee, titre, texte in chronologie %}
-            <article class="timeline-item">
+            {% set an = annee[:4] | int %}
+            {% set periode = 'origines' if an < 2012 else ('ascension' if an <= 2016 else 'campagnes') %}
+            <article class="timeline-item" data-periode="{{ periode }}">
                 <div class="timeline-marqueur" aria-hidden="true"></div>
                 <span class="timeline-annee">{{ annee }}</span>
                 <div class="timeline-contenu">
@@ -27,8 +34,8 @@
 
 <section class="section section-sombre">
     <div class="section-tete">
-        <p class="numero">POUR ALLER PLUS LOIN</p>
-        <h2>Les sources du dossier</h2>
+        <p class="numero">{{ t.chrono_sources_numero }}</p>
+        <h2>{{ t.chrono_sources_titre }}</h2>
     </div>
     <ul class="liste-sources">
         {% for nom, url in sources %}

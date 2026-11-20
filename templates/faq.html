@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block titre %}{{ meta.faq.titre }}{% endblock %}
+{% block description %}{{ meta.faq.description }}{% endblock %}
+{% block keywords %}{{ meta.faq.keywords }}{% endblock %}
+{% block contenu %}
+
+<script type="application/ld+json">{{ faq_schema | tojson }}</script>
+
+<section class="page-tete">
+    <p class="eyebrow">{{ t.faq_eyebrow }}</p>
+    <h1>{{ t.faq_h1[0] }}<span>{{ t.faq_h1[1] }}</span></h1>
+    <p class="page-intro">{{ t.faq_intro }}</p>
+</section>
+
+<section class="section">
+    <div class="faq-liste">
+        {% for question, reponse in t.faq %}
+            <details class="faq-item">
+                <summary>{{ question }}</summary>
+                <p>{{ reponse }}</p>
+            </details>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

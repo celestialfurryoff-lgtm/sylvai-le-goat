@@ -1,25 +1,28 @@
 <!doctype html>
-<html lang="fr">
+<html lang="{{ langue }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block titre %}Sylvain Durif — Le Christ cosmique{% endblock %}</title>
-    <meta name="description" content="{% block description %}Dossier documenté et parodique sur Sylvain Durif, alias le Christ cosmique : ses titres, ses pouvoirs revendiqués, ses répliques et ses projets.{% endblock %}">
-    <meta name="keywords" content="{% block keywords %}Sylvain Durif, Christ cosmique, Grand Monarque, Bugarach, vidéaste français, mème internet, présidentielle 2027{% endblock %}">
+    <title>{% block titre %}{{ meta.index.titre }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{{ meta.index.description }}{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}{{ meta.index.keywords }}{% endblock %}">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="author" content="Dossier Durif">
     <meta name="theme-color" content="#07070e">
-    <link rel="canonical" href="{{ url_base }}{{ request.path }}">
-    <link rel="alternate" hreflang="fr" href="{{ url_base }}{{ request.path }}">
+    <link rel="canonical" href="{{ url_locale(request.endpoint) }}">
+    <link rel="alternate" hreflang="fr" href="{{ url_locale(request.endpoint, 'fr') }}">
+    <link rel="alternate" hreflang="en" href="{{ url_locale(request.endpoint, 'en') }}">
+    <link rel="alternate" hreflang="x-default" href="{{ url_locale(request.endpoint, 'fr') }}">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ url_base }}/sitemap.xml">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Dossier Durif">
-    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale" content="{{ 'fr_FR' if langue == 'fr' else 'en_US' }}">
     <meta property="og:title" content="{{ self.titre() }}">
     <meta property="og:description" content="{{ self.description() }}">
-    <meta property="og:url" content="{{ url_base }}{{ request.path }}">
+    <meta property="og:url" content="{{ url_locale(request.endpoint) }}">
     <meta property="og:image" content="{{ url_for('static', filename='images/durif-portrait-2014.jpg', _external=True) }}">
+    <meta property="og:image:alt" content="{{ t.hero_img_alt }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ self.titre() }}">
     <meta name="twitter:description" content="{{ self.description() }}">
@@ -36,31 +39,27 @@
     <div class="etoiles" aria-hidden="true"></div>
 
     <header class="site-header">
-        <a class="marque" href="{{ url_for('index') }}">
+        <a class="marque" href="{{ url_for('index', langue=langue) }}">
             <span class="marque-symbole">✳</span>
-            <span>DOSSIER <b>DURIF</b></span>
+            <span>{{ t.marque }}</span>
         </a>
         <nav aria-label="Navigation principale">
-            {% set liens = [
-                ('index', 'Accueil'),
-                ('pouvoirs', 'Pouvoirs'),
-                ('programme', 'Programme 2027'),
-                ('paroles', 'Paroles'),
-                ('chronologie', 'Chronologie')
-            ] %}
-            {% for endpoint, libelle in liens %}
-                <a href="{{ url_for(endpoint) }}"{% if request.endpoint == endpoint %} class="actif" aria-current="page"{% endif %}>{{ libelle }}</a>
+            {% for endpoint, libelle in t.nav %}
+                <a href="{{ url_for(endpoint, langue=langue) }}"{% if request.endpoint == endpoint %} class="actif" aria-current="page"{% endif %}>{{ libelle }}</a>
             {% endfor %}
         </nav>
+        <div class="langue-switch" role="group" aria-label="{{ t.langue_aria }}">
+            <a href="{{ url_locale(request.endpoint, 'fr') }}" class="{% if langue == 'fr' %}actif{% endif %}" {% if langue == 'fr' %}aria-current="true"{% endif %}>FR</a>
+            <span aria-hidden="true">/</span>
+            <a href="{{ url_locale(request.endpoint, 'en') }}" class="{% if langue == 'en' %}actif{% endif %}" {% if langue == 'en' %}aria-current="true"{% endif %}>EN</a>
+        </div>
     </header>
 
     <div class="bandeau" aria-hidden="true">
         <div class="bandeau-interne">
-            <span>HALLUCINATION COLLECTIVE</span><span>✳</span>
-            <span>VAISSEAU DORÉ DE 300 MÈTRES</span><span>✳</span>
-            <span>J'INCARNE L'ÉNERGIE DU CHRIST COSMIQUE</span><span>✳</span>
-            <span>HALLUCINATION COLLECTIVE</span><span>✳</span>
-            <span>VAISSEAU DORÉ DE 300 MÈTRES</span><span>✳</span>
+            {% for phrase in t.bandeau %}
+                <span>{{ phrase }}</span><span>✳</span>
+            {% endfor %}
         </div>
     </div>
 
@@ -69,11 +68,11 @@
     <footer class="site-footer">
         <div class="footer-grille">
             <div>
-                <p class="footer-titre">✳ DOSSIER DURIF</p>
-                <p class="footer-texte">Site documentaire et parodique, sans lien avec Sylvain Durif. Les affirmations rapportées sont les siennes et sont présentées comme telles.</p>
+                <p class="footer-titre">{{ t.footer_titre }}</p>
+                <p class="footer-texte">{{ t.footer_texte }}</p>
             </div>
             <div>
-                <p class="footer-titre">SOURCES</p>
+                <p class="footer-titre">{{ t.footer_sources }}</p>
                 <ul class="footer-sources">
                     {% for nom, url in sources %}
                         <li><a href="{{ url }}" target="_blank" rel="noopener noreferrer">{{ nom }}</a></li>
@@ -81,7 +80,7 @@
                 </ul>
             </div>
             <div>
-                <p class="footer-titre">CRÉDITS IMAGES</p>
+                <p class="footer-titre">{{ t.footer_images }}</p>
                 <ul class="footer-sources">
                     {% for image in images %}
                         <li><a href="{{ image.url }}" target="_blank" rel="noopener noreferrer">{{ image.legende }} — {{ image.auteur }} ({{ image.licence }})</a></li>
@@ -89,9 +88,15 @@
                 </ul>
             </div>
         </div>
-        <p class="footer-bas">Archive cosmique · Fait avec curiosité et un peu de Soleil · <a href="{{ url_for('index') }}">retour au début</a></p>
+        <p class="footer-bas">{{ t.footer_bas }}<a href="{{ url_for('index', langue=langue) }}">{{ t.footer_retour }}</a></p>
     </footer>
 
+    <script>
+        window.DURIF_I18N = {
+            langue: "{{ langue }}",
+            guillemets: {{ t.guillemets | tojson }}
+        };
+    </script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
