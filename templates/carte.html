@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block titre %}{{ meta.carte.titre }}{% endblock %}
+{% block description %}{{ meta.carte.description }}{% endblock %}
+{% block keywords %}{{ meta.carte.keywords }}{% endblock %}
+{% block contenu %}
+
+<section class="page-tete">
+    <p class="eyebrow">{{ t.carte_eyebrow }}</p>
+    <h1>{{ t.carte_h1[0] }}<span>{{ t.carte_h1[1] }}</span></h1>
+    <p class="page-intro">{{ t.carte_intro }}</p>
+</section>
+
+<section class="section">
+    <p class="section-intro">{{ t.carte_legende }}</p>
+    <div class="carte-cadre">
+        <svg class="carte-fond" viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true">
+            <circle cx="500" cy="250" r="180" fill="none" stroke="rgba(242,199,92,.16)" stroke-width="1"/>
+            <circle cx="500" cy="250" r="300" fill="none" stroke="rgba(139,108,255,.16)" stroke-width="1"/>
+            <path d="M0 380 C 220 300, 300 460, 520 350 S 820 260, 1000 340" fill="none" stroke="rgba(242,199,92,.22)" stroke-width="1"/>
+            <path d="M120 120 C 300 40, 460 180, 640 100 S 900 60, 1000 120" fill="none" stroke="rgba(241,237,255,.12)" stroke-width="1"/>
+            <path d="M80 260 C 240 220, 360 320, 540 250 S 840 180, 960 240" fill="none" stroke="rgba(139,108,255,.2)" stroke-width="1"/>
+            <circle cx="500" cy="250" r="4" fill="var(--or)"/>
+            <circle cx="250" cy="120" r="2" fill="var(--or-pale)"/>
+            <circle cx="760" cy="380" r="2" fill="var(--or-pale)"/>
+            <circle cx="880" cy="90" r="2" fill="#fff"/>
+        </svg>
+        {% for lieu in t.carte_lieux %}
+            <a class="carte-point" href="#carte-{{ lieu.numero }}" style="left: {{ lieu.x }}%; top: {{ lieu.y }}%;" aria-label="{{ lieu.titre }} — {{ lieu.meta }}"><span>{{ lieu.numero }}</span></a>
+        {% endfor %}
+    </div>
+    <p class="carte-note">{{ t.carte_note }}</p>
+</section>
+
+<section class="section section-sombre">
+    <div class="section-tete">
+        <p class="numero">✳</p>
+        <h2>{{ t.carte_fiche_titre }}</h2>
+    </div>
+    <div class="lieux-liste">
+        {% for lieu in t.carte_lieux %}
+            <article class="lieu-carte" id="carte-{{ lieu.numero }}">
+                <span class="lieu-numero">{{ lieu.numero }}</span>
+                <h3>{{ lieu.titre }}</h3>
+                <p class="lieu-meta">{{ lieu.meta }}</p>
+                <p>{{ lieu.texte }}</p>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

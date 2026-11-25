@@ -29,7 +29,7 @@ app.py            routes Flask, API et sélection de langue
 contenu.py        contenus français (citations, pouvoirs, chronologie, programme, sources)
 traductions.py    interface, SEO et contenus anglais
 generer_statique.py  sitemap/robots statiques pour Vercel
-templates/        base.html + 7 pages
+templates/        base.html + 11 pages
 static/css/       style.css
 static/js/        main.js
 static/images/    4 photos/logos téléchargés depuis Wikimedia Commons
@@ -46,7 +46,11 @@ static/images/    4 photos/logos téléchargés depuis Wikimedia Commons
 | `/chronologie` | De 1969 à 2027 + sources |
 | `/jeux` | 3 mini-jeux : bingo, quiz, parrainages |
 | `/faq` | Questions fréquentes + données `FAQPage` |
-| `/en/...` | Les mêmes pages en anglais (`/en/jeux`, `/en/faq`, etc.) |
+| `/carte` | Atlas schématique des lieux du dossier |
+| `/archives` | 6 fiches vidéo/presse avec repères et transcriptions |
+| `/glossaire` | Lexique bilingue des termes du cosmos |
+| `/kit-presse` | Chiffres, citations copiables, visuels et sources |
+| `/en/...` | Les mêmes pages en anglais (`/en/jeux`, `/en/carte`, etc.) |
 | `/api/citations?lang=fr\|en` | Citation aléatoire en JSON |
 | `/api/pouvoirs` | Liste des pouvoirs en JSON |
 | `/api/proclamation` | Proclamation générée en JSON |
@@ -64,7 +68,7 @@ Wikipédia, Vice (2017), Le Parisien (2012), L'Indépendant (2016), 20 Minutes (
 - Balises Open Graph et Twitter Card (avec le portrait comme image de partage).
 - `link rel="canonical"`, `hreflang` fr/en/x-default, `robots` et lien vers le sitemap.
 - Données structurées JSON-LD (`WebSite` + `Person`) injectées dans le `<head>`.
-- `/robots.txt` et `/sitemap.xml` générés dynamiquement (10 URL, 2 langues).
+- `/robots.txt` et `/sitemap.xml` générés dynamiquement (22 URL, 2 langues).
 
 ## Bilinguisme FR / EN
 

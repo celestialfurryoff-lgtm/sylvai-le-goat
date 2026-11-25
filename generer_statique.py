@@ -19,6 +19,10 @@ PAGES = [
     ("chronologie", "0.8", "monthly"),
     ("jeux", "0.7", "monthly"),
     ("faq", "0.7", "monthly"),
+    ("carte", "0.7", "monthly"),
+    ("archives", "0.6", "monthly"),
+    ("glossaire", "0.6", "monthly"),
+    ("kit-presse", "0.5", "yearly"),
 ]
 LANGUES = ("fr", "en")
 

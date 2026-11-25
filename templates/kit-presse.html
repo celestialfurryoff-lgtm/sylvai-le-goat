@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block titre %}{{ meta.kit_presse.titre }}{% endblock %}
+{% block description %}{{ meta.kit_presse.description }}{% endblock %}
+{% block keywords %}{{ meta.kit_presse.keywords }}{% endblock %}
+{% block contenu %}
+{% set fichiers = [
+    'images/durif-portrait-2014.jpg',
+    'images/durif-autoroute-2013.png',
+    'images/durif-flute-2022.jpg',
+    'images/logo-durif-2027.png'
+] %}
+
+<section class="page-tete">
+    <p class="eyebrow">{{ t.kit_eyebrow }}</p>
+    <h1>{{ t.kit_h1[0] }}<span>{{ t.kit_h1[1] }}</span></h1>
+    <p class="page-intro">{{ t.kit_intro }}</p>
+    <p class="attention">{{ t.kit_avis }}</p>
+</section>
+
+<section class="section">
+    <div class="section-tete">
+        <p class="numero">{{ t.kit_bref }}</p>
+        <h2>{{ t.kit_bref_titre }}</h2>
+    </div>
+    <div class="chiffres">
+        {% for chiffre, libelle in t.chiffres %}
+            <div class="chiffre"><b>{{ chiffre }}</b><span>{{ libelle }}</span></div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="section section-sombre">
+    <div class="section-tete">
+        <p class="numero">{{ t.kit_citations }}</p>
+        <h2>{{ t.kit_citations_titre }}</h2>
+    </div>
+    <div class="kit-citations">
+        {% for citation in citations[:3] %}
+            <div class="kit-citation">
+                <div class="kit-bloc" id="kit-bloc-{{ loop.index }}">
+                    <blockquote>{{ t.guillemets[0] }} {{ citation.texte }} {{ t.guillemets[1] }}</blockquote>
+                    <p class="kit-attribution">{{ t.kit_attribution }} — {{ citation.titre }} — {{ citation.source }}</p>
+                </div>
+                <button class="btn" type="button" data-copier="kit-bloc-{{ loop.index }}" data-succes="{{ t.kit_copie }}" data-echec="{{ t.kit_echec }}">{{ t.kit_copier }}</button>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-tete">
+        <p class="numero">{{ t.kit_visuels }}</p>
+        <h2>{{ t.kit_visuels_titre }}</h2>
+    </div>
+    <div class="kit-visuels">
+        {% for image in images %}
+            <article class="kit-visual">
+                <img src="{{ url_for('static', filename=fichiers[loop.index0]) }}" alt="{{ image.legende }}" loading="lazy">
+                <p>{{ image.legende }} <span class="source">— {{ image.auteur }} · {{ image.licence }}</span></p>
+                <a href="{{ url_for('static', filename=fichiers[loop.index0]) }}" download>{{ t.kit_telecharger }}</a>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="section section-sombre">
+    <div class="section-tete">
+        <p class="numero">{{ t.kit_sources }}</p>
+        <h2>{{ t.kit_sources_titre }}</h2>
+    </div>
+    <ul class="liste-sources">
+        {% for nom, url in sources %}
+            <li><a href="{{ url }}" target="_blank" rel="noopener noreferrer">{{ nom }} <span>↗</span></a></li>
+        {% endfor %}
+    </ul>
+</section>
+
+<section class="section">
+    <div class="deux-colonnes">
+        <div>
+            <p class="numero">{{ t.kit_contact }}</p>
+            <h2>{{ t.kit_contact_titre }}</h2>
+        </div>
+        <p>{{ t.kit_contact_texte }}</p>
+    </div>
+</section>
+
+{% endblock %}

@@ -19,8 +19,12 @@ UI = {
             ("programme", "Programme 2027"),
             ("paroles", "Paroles"),
             ("chronologie", "Chronologie"),
+            ("carte", "Carte"),
+            ("archives", "Archives"),
+            ("glossaire", "Glossaire"),
             ("jeux", "Les Jeux"),
             ("faq", "FAQ"),
+            ("kit_presse", "Kit presse"),
         ],
         "chrono_filtres": [
             ("toutes", "Tout"),
@@ -74,11 +78,7 @@ UI = {
             ("Participe-t-il à la présidentielle 2027 ?", "Il a annoncé sa candidature en août 2026. Pour être officiellement candidat, il doit réunir 500 parrainages d'élus avant le 12 mars 2027."),
             ("Ce site valide-t-il ces affirmations ?", "Non. C'est un dossier documentaire et parodique : les propos sont attribués à Sylvain Durif, sourcés, et présentés comme les siens, pas comme des faits."),
         ],
-        "bandeau": [
-            "HALLUCINATION COLLECTIVE",
-            "VAISSEAU DORÉ DE 300 MÈTRES",
-            "J'INCARNE L'ÉNERGIE DU CHRIST COSMIQUE",
-        ],
+        "bandeau": "HALLUCINATION COLLECTIVE",
         "footer_titre": "✳ DOSSIER DURIF",
         "footer_texte": (
             "Site documentaire et parodique, sans lien avec Sylvain Durif. "
@@ -219,6 +219,144 @@ UI = {
         ),
         "chrono_sources_numero": "POUR ALLER PLUS LOIN",
         "chrono_sources_titre": "Les sources du dossier",
+
+        # --- Atlas cosmique ---
+        "carte_eyebrow": "DOSSIER · 08",
+        "carte_h1": ("L'ATLAS ", "COSMIQUE"),
+        "carte_intro": (
+            "Les lieux du récit, de Nantua à Aldébaran. Une géographie du dossier, "
+            "pas une géographie des faits."
+        ),
+        "carte_note": (
+            "Carte schématique : les points sont placés pour suivre le récit, "
+            "sans respect des distances ni de l'échelle."
+        ),
+        "carte_legende": "Sélectionnez un point pour lire sa fiche.",
+        "carte_fiche_titre": "Les étapes du récit",
+        "carte_lieux": [
+            {"numero": "01", "x": 26, "y": 22, "titre": "Nantua", "meta": "1969 · Naissance",
+             "texte": "23 août 1969 : naissance de Sylvain Pierre Durif dans l'Ain. Le point de départ de l'archive."},
+            {"numero": "02", "x": 39, "y": 46, "titre": "Bugarach", "meta": "2012 · Révélation",
+             "texte": "En décembre 2012, le village est au centre des prédictions de fin du monde. Il y déclare : « J'incarne l'énergie du Christ cosmique »."},
+            {"numero": "03", "x": 32, "y": 68, "titre": "Arques", "meta": "2014 · 7 voix",
+             "texte": "Candidat aux municipales de 2014 dans l'Aude : 7 voix, 5,03 % des suffrages. Son programme évoque la télépathie."},
+            {"numero": "04", "x": 15, "y": 40, "titre": "Brocéliande", "meta": "2017 · Druides",
+             "texte": "Une promenade en forêt de Paimpont l'aurait mis « en lien avec l'énergie de Merlin ». Son nom d'âme serait Oriana."},
+            {"numero": "05", "x": 13, "y": 75, "titre": "Montréal", "meta": "2012 · Ubiquité",
+             "texte": "Il affirme au Parisien pouvoir entrer dans la cuisine de quelqu'un qui l'invite : l'exemple le plus cité de son « don d'ubiquité »."},
+            {"numero": "06", "x": 19, "y": 12, "titre": "Québec", "meta": "2004 / 2008 · Elvita",
+             "texte": "La société Elvita est créée en 2004. En 2008, un dénommé George lui aurait dit : « Tu t'appelles Pierre, ça fait 20 ans que je t'attends. »"},
+            {"numero": "07", "x": 60, "y": 84, "titre": "Brésil", "meta": "2016 · Cité de lumière",
+             "texte": "Le projet de « cité de lumière » est imaginé dans la haute vallée de l'Aude, au Brésil et au Québec à partir de 2016."},
+            {"numero": "08", "x": 64, "y": 34, "titre": "Fort Queyras", "meta": "2022 · Siège du Cosmos",
+             "texte": "En 2022, il annonce vouloir racheter le fort pour 221 millions d'euros et y installer le « siège du Cosmos »."},
+            {"numero": "09", "x": 47, "y": 63, "titre": "Montauban", "meta": "2026 · Campagne",
+             "texte": "Meeting du 18 novembre 2026, au cœur de la campagne annoncée pour la présidentielle de 2027."},
+            {"numero": "10", "x": 88, "y": 17, "titre": "Aldébaran", "meta": "Enfance · Hors carte",
+             "texte": "Lieu hors carte : à cinq ans, il raconte un voyage sur Aldébaran à bord d'un vaisseau de la Vierge Marie."},
+        ],
+
+        # --- Archives vidéo et presse ---
+        "archives_eyebrow": "DOSSIER · 09",
+        "archives_h1": ("LES ", "ARCHIVES"),
+        "archives_intro": (
+            "Six repères audio, vidéo et presse pour remonter le fil des affirmations "
+            "et des extraits devenus mèmes."
+        ),
+        "archives_avis": (
+            "Les transcriptions sont des extraits traduits et abrégés. Consultez la source "
+            "d'origine avant toute citation."
+        ),
+        "archives_lire": "Lire la transcription",
+        "archives_source": "Consulter la source ↗",
+        "archives_fiches": [
+            {"titre": "L'abduction par la Vierge Marie", "format": "Vidéo · 4 M+ de vues", "date": "2012-2013",
+             "description": "Son récit le plus regardé : enlèvement à cinq ans, voyage sur Aldébaran et dons de précognition.",
+             "repères": [("00:12", "« J'ai été abducté par un vaisseau »"), ("01:40", "Le vaisseau de la Vierge Marie"), ("03:05", "Aldébaran et les dons")],
+             "transcription": ["« À 5 ans, quand j'avais été enlevé, j'ai été enlevé sur une planète… »", "« J'ai pu constater des vaisseaux de lumière dorée. »"],
+             "source_nom": "Conspiracy Watch", "source_url": "https://www.conspiracywatch.info/notice/sylvain-durif"},
+            {"titre": "L'énergie du Christ cosmique", "format": "Interview · Le Parisien", "date": "Décembre 2012",
+             "description": "La phrase née à Bugarach et reprise par tout le web francophone.",
+             "repères": [("00:20", "Le contexte de la fin du monde"), ("00:48", "« J'incarne l'énergie du Christ cosmique »")],
+             "transcription": ["« J'incarne l'énergie du Christ cosmique. »", "Il se dit capable d'aller « n'importe où dans le cosmos »."],
+             "source_nom": "Wikipédia — Sylvain Durif", "source_url": "https://fr.wikipedia.org/wiki/Sylvain_Durif"},
+            {"titre": "Serpents et singes dansants", "format": "Extrait · TikTok", "date": "Fin 2023",
+             "description": "Le clip devenu mème, et la formule qui l'accompagne.",
+             "repères": [("00:03", "Les serpents sur le lit"), ("00:09", "« Hallucination collective »")],
+             "transcription": ["« À l'âge de 5 ans j'ai vu sur mon lit danser des serpents et des singes. »", "« Hallucination collective. »"],
+             "source_nom": "La Soundboard — 13 répliques", "source_url": "https://lasoundboard.fr/repliques/christ-cosmique/"},
+            {"titre": "Candidature officielle 2027", "format": "Déclaration · 20 Minutes", "date": "Août 2026",
+             "description": "L'annonce de campagne, avec la longue liste des titres qu'il revendique.",
+             "repères": [("00:15", "Les titres"), ("00:52", "« Ma candidature officielle et publique pour 2027 »")],
+             "transcription": ["« Bonjour. Je suis le Grand monarque, le Christ cosmique, le Messie… »", "« Je vous annonce ma candidature officielle et publique pour 2027. »"],
+             "source_nom": "20 Minutes — Qui est Sylvain Durif ?", "source_url": "https://www.20minutes.fr/politique/4241053-20260826-presidentielle-2027-sylvain-durif-christ-cosmique-veut-presenter"},
+            {"titre": "Le siège du Cosmos", "format": "Projet · Presse", "date": "2022",
+             "description": "Le projet de rachat du Fort Queyras et la cité de lumière.",
+             "repères": [("01:10", "Le montant de 221 millions d'euros"), ("02:30", "Le siège du Cosmos")],
+             "transcription": ["« Je viens installer le siège du Cosmos. »", "Le projet est annoncé à 221 millions d'euros."],
+             "source_nom": "France Inter — Les 80''", "source_url": "https://www.radiofrance.fr/franceinter/podcasts/les-80/les-80-du-jeudi-22-octobre-2026-9573504"},
+            {"titre": "Treize répliques cultes", "format": "Soundboard · Audio", "date": "2012-2023",
+             "description": "La compilation qui a fixé les formules les plus citées du dossier.",
+             "repères": [("03:20", "« Rugi comme un lion géant »"), ("07:45", "« Lumière dorée »")],
+             "transcription": ["« Mon chakra de la gorge s'est libéré, j'ai rugi comme un lion géant… »", "« Toutes mes cellules sont devenues lumières dorées. »"],
+             "source_nom": "La Soundboard — 13 répliques", "source_url": "https://lasoundboard.fr/repliques/christ-cosmique/"},
+        ],
+
+        # --- Glossaire ---
+        "glossaire_eyebrow": "DOSSIER · 10",
+        "glossaire_h1": ("LEXIQUE ", "DU COSMOS"),
+        "glossaire_intro": (
+            "Les mots du dossier, expliqués tels qu'ils apparaissent dans les vidéos "
+            "et la presse, sans adhésion aux affirmations rapportées."
+        ),
+        "glossaire_note": "Les définitions décrivent les affirmations, pas des faits établis.",
+        "glossaire_entrees": [
+            {"terme": "Agartha", "definition": "Réseau de cités souterraines de lumière dont il affirme l'existence.", "source": "Vice · 2017"},
+            {"terme": "Aldébaran", "definition": "Planète où il dit avoir été emmené à cinq ans par un vaisseau de la Vierge Marie.", "source": "La Soundboard"},
+            {"terme": "Bouddhas (cinq)", "definition": "Illumination qu'il dit avoir reçue, rendant ses cellules « lumières dorées ».", "source": "La Soundboard"},
+            {"terme": "Cité de lumière", "definition": "Centre de ressourcement et de bien-être imaginé dans l'Aude, au Brésil et au Québec.", "source": "L'Indépendant · 2016"},
+            {"terme": "Christ cosmique", "definition": "Titre qu'il se donne depuis 2012, repris par la presse puis par internet.", "source": "Le Parisien · 2012"},
+            {"terme": "Elvita", "definition": "Société créée en 2004, présentée comme éditrice de logiciels et socle de sa gouvernance.", "source": "Wikipédia"},
+            {"terme": "Grand Monarque", "definition": "Un des titres messianiques qu'il revendique dans ses annonces de candidature.", "source": "20 Minutes · 2026"},
+            {"terme": "Hallucination collective", "definition": "Réplique devenue mème TikTok fin 2023, associée aux serpents et singes dansants.", "source": "TikTok · 2023"},
+            {"terme": "Homme Vert / Sylvanus", "definition": "Identités qu'il revendique après un passage en forêt de Brocéliande.", "source": "Vice · 2017"},
+            {"terme": "Oriana", "definition": "Le « nom d'âme » qu'il dit avoir reçu, relié selon lui à l'énergie de l'Homme Vert.", "source": "La Soundboard"},
+            {"terme": "Parrainage", "definition": "Présentation d'un candidat par un élu : 500 sont nécessaires avant le 12 mars 2027.", "source": "20 Minutes · 2026"},
+            {"terme": "Quetzalcoatl", "definition": "Dieu oiseau serpent des Toltèques auquel il dit être « en lien ».", "source": "La Soundboard"},
+            {"terme": "Reptiliens", "definition": "Figures de théorie du complot qu'il dit infiltrer les responsables politiques.", "source": "Vice · 2017"},
+            {"terme": "Vaisseau doré", "definition": "Vaisseau de lumière de 300 mètres qu'il affirme avoir observé à plusieurs reprises.", "source": "La Soundboard"},
+        ],
+
+        # --- Kit presse ---
+        "kit_eyebrow": "DOSSIER · 11",
+        "kit_h1": ("KIT ", "PRESSE"),
+        "kit_intro": (
+            "L'essentiel du dossier à réutiliser : chiffres, répliques, visuels et sources."
+        ),
+        "kit_avis": (
+            "Site indépendant, sans lien avec Sylvain Durif. Merci de conserver l'attribution "
+            "et le contexte documentaire lors d'une reprise."
+        ),
+        "kit_bref": "EN BREF",
+        "kit_bref_titre": "Quatre repères",
+        "kit_citations": "CITATIONS",
+        "kit_citations_titre": "Trois répliques à citer",
+        "kit_attribution": "Dossier Durif — dossier documentaire et parodique.",
+        "kit_copier": "Copier",
+        "kit_copie": "Copié !",
+        "kit_echec": "Copie impossible",
+        "kit_visuels": "VISUELS",
+        "kit_visuels_titre": "Portrait et logo de campagne",
+        "kit_telecharger": "Télécharger ↗",
+        "kit_sources": "SOURCES",
+        "kit_sources_titre": "À consulter avant d'écrire",
+        "kit_contact": "À PROPOS",
+        "kit_contact_titre": "Une archive ouverte",
+        "kit_contact_texte": (
+            "Ce dossier rassemble des propos rapportés par la presse et tirés de vidéos "
+            "publiques. Il ne valide aucune des affirmations citées et ne prend pas part "
+            "à la campagne présidentielle."
+        ),
         "js_signal_perdu": "Signal perdu, réessayez",
         "js_reception": "Réception du signal…",
         "js_hors_portee": "Le vaisseau est hors de portée. Réessayez.",
@@ -234,8 +372,12 @@ UI = {
             ("programme", "2027 platform"),
             ("paroles", "Quotes"),
             ("chronologie", "Timeline"),
+            ("carte", "Map"),
+            ("archives", "Archives"),
+            ("glossaire", "Glossary"),
             ("jeux", "Games"),
             ("faq", "FAQ"),
+            ("kit_presse", "Press kit"),
         ],
         "chrono_filtres": [
             ("toutes", "All"),
@@ -289,11 +431,7 @@ UI = {
             ("Is he running in the 2027 election?", "He announced his candidacy in August 2026. To become an official candidate, he needs 500 endorsements from elected officials before 12 March 2027."),
             ("Does this site endorse these claims?", "No. It is a documentary and satirical dossier: the remarks are attributed to Sylvain Durif, sourced, and presented as his words, not as facts."),
         ],
-        "bandeau": [
-            "COLLECTIVE HALLUCINATION",
-            "A 300-METRE GOLDEN SHIP",
-            "I EMBODY THE ENERGY OF THE COSMIC CHRIST",
-        ],
+        "bandeau": "COLLECTIVE HALLUCINATION",
         "footer_titre": "✳ DURIF FILES",
         "footer_texte": (
             "A documentary and satirical site, unconnected to Sylvain Durif. The claims reported "
@@ -434,6 +572,144 @@ UI = {
         ),
         "chrono_sources_numero": "GOING FURTHER",
         "chrono_sources_titre": "Sources for this dossier",
+
+        # --- Cosmic map ---
+        "carte_eyebrow": "FILE · 08",
+        "carte_h1": ("THE COSMIC ", "ATLAS"),
+        "carte_intro": (
+            "The places in the story, from Nantua to Aldebaran. A geography of the "
+            "dossier, not of the facts."
+        ),
+        "carte_note": (
+            "Schematic map: points are placed to follow the story, with no regard "
+            "for real distances or scale."
+        ),
+        "carte_legende": "Select a point to read its entry.",
+        "carte_fiche_titre": "Milestones of the story",
+        "carte_lieux": [
+            {"numero": "01", "x": 26, "y": 22, "titre": "Nantua", "meta": "1969 · Birth",
+             "texte": "23 August 1969: birth of Sylvain Pierre Durif in the Ain. The starting point of the archive."},
+            {"numero": "02", "x": 39, "y": 46, "titre": "Bugarach", "meta": "2012 · Revelation",
+             "texte": "In December 2012 the village was at the centre of doomsday predictions. There he said: “I embody the energy of the Cosmic Christ”."},
+            {"numero": "03", "x": 32, "y": 68, "titre": "Arques", "meta": "2014 · 7 votes",
+             "texte": "Candidate in the 2014 local election in the Aude: 7 votes, 5.03% of the ballot. His platform mentioned telepathy."},
+            {"numero": "04", "x": 15, "y": 40, "titre": "Brocéliande", "meta": "2017 · Druids",
+             "texte": "A walk in the forest of Paimpont apparently put him “in touch with the energy of Merlin”. His soul name is said to be Oriana."},
+            {"numero": "05", "x": 13, "y": 75, "titre": "Montreal", "meta": "2012 · Ubiquity",
+             "texte": "He told Le Parisien he could enter someone's kitchen in Montreal: the most quoted example of his “gift of ubiquity”."},
+            {"numero": "06", "x": 19, "y": 12, "titre": "Quebec", "meta": "2004 / 2008 · Elvita",
+             "texte": "The company Elvita was created in 2004. In 2008 a man named George reportedly told him: “Your name is Pierre, I have been waiting for you for 20 years.”"},
+            {"numero": "07", "x": 60, "y": 84, "titre": "Brazil", "meta": "2016 · City of light",
+             "texte": "The “city of light” project was envisioned in the upper Aude valley, in Brazil and in Quebec from 2016 onwards."},
+            {"numero": "08", "x": 64, "y": 34, "titre": "Fort Queyras", "meta": "2022 · HQ of the Cosmos",
+             "texte": "In 2022 he announced plans to buy the fort for €221 million and set up the “headquarters of the Cosmos” there."},
+            {"numero": "09", "x": 47, "y": 63, "titre": "Montauban", "meta": "2026 · Campaign",
+             "texte": "Rally on 18 November 2026, in the middle of the campaign announced for the 2027 presidential election."},
+            {"numero": "10", "x": 88, "y": 17, "titre": "Aldebaran", "meta": "Childhood · Off map",
+             "texte": "Off-map location: at the age of five he describes a journey to Aldebaran aboard a ship of the Virgin Mary."},
+        ],
+
+        # --- Video and press archives ---
+        "archives_eyebrow": "FILE · 09",
+        "archives_h1": ("THE ", "ARCHIVES"),
+        "archives_intro": (
+            "Six audio, video and press milestones to trace the claims and the clips "
+            "that turned into memes."
+        ),
+        "archives_avis": (
+            "Transcripts are translated and abridged extracts. Check the original "
+            "source before quoting any line."
+        ),
+        "archives_lire": "Read the transcript",
+        "archives_source": "Visit the source ↗",
+        "archives_fiches": [
+            {"titre": "Abduction by the Virgin Mary", "format": "Video · 4M+ views", "date": "2012-2013",
+             "description": "His most-watched story: abduction at the age of five, a journey to Aldebaran and precognitive gifts.",
+             "repères": [("00:12", "“I was abducted by a ship”"), ("01:40", "The ship of the Virgin Mary"), ("03:05", "Aldebaran and the gifts")],
+             "transcription": ["“At five, when I was taken, I was taken to a planet...”", "“I have repeatedly observed ships of golden light.”"],
+             "source_nom": "Conspiracy Watch", "source_url": "https://www.conspiracywatch.info/notice/sylvain-durif"},
+            {"titre": "The energy of the Cosmic Christ", "format": "Interview · Le Parisien", "date": "December 2012",
+             "description": "The line born in Bugarach and picked up across the French-speaking web.",
+             "repères": [("00:20", "The doomsday context"), ("00:48", "“I embody the energy of the Cosmic Christ”")],
+             "transcription": ["“I embody the energy of the Cosmic Christ.”", "He says he can go “anywhere in the cosmos”."],
+             "source_nom": "Wikipedia — Sylvain Durif", "source_url": "https://fr.wikipedia.org/wiki/Sylvain_Durif"},
+            {"titre": "Dancing snakes and monkeys", "format": "Clip · TikTok", "date": "Late 2023",
+             "description": "The clip that became a meme, and the line that goes with it.",
+             "repères": [("00:03", "Snakes on the bed"), ("00:09", "“Collective hallucination”")],
+             "transcription": ["“At the age of five I saw snakes and monkeys dancing on my bed.”", "“Collective hallucination.”"],
+             "source_nom": "La Soundboard — 13 cult lines", "source_url": "https://lasoundboard.fr/repliques/christ-cosmique/"},
+            {"titre": "Official 2027 candidacy", "format": "Statement · 20 Minutes", "date": "August 2026",
+             "description": "The campaign announcement, with the long list of titles he claims.",
+             "repères": [("00:15", "The titles"), ("00:52", "“My official and public candidacy for 2027”")],
+             "transcription": ["“Hello. I am the Great Monarch, the Cosmic Christ, the Messiah...”", "“I announce my official and public candidacy for 2027.”"],
+             "source_nom": "20 Minutes — Who is Sylvain Durif?", "source_url": "https://www.20minutes.fr/politique/4241053-20260826-presidentielle-2027-sylvain-durif-christ-cosmique-veut-presenter"},
+            {"titre": "The headquarters of the Cosmos", "format": "Project · Press", "date": "2022",
+             "description": "The plan to buy Fort Queyras and the city of light project.",
+             "repères": [("01:10", "The €221 million price tag"), ("02:30", "The headquarters of the Cosmos")],
+             "transcription": ["“I am coming to install the headquarters of the Cosmos.”", "The project was announced at €221 million."],
+             "source_nom": "France Inter — Les 80''", "source_url": "https://www.radiofrance.fr/franceinter/podcasts/les-80/les-80-du-jeudi-22-octobre-2026-9573504"},
+            {"titre": "Thirteen cult lines", "format": "Soundboard · Audio", "date": "2012-2023",
+             "description": "The compilation that fixed the most quoted phrases of the dossier.",
+             "repères": [("03:20", "“Roaring like a giant lion”"), ("07:45", "“Golden light”")],
+             "transcription": ["“My throat chakra was released, I roared like a giant lion...”", "“All my cells became golden light.”"],
+             "source_nom": "La Soundboard — 13 cult lines", "source_url": "https://lasoundboard.fr/repliques/christ-cosmique/"},
+        ],
+
+        # --- Glossary ---
+        "glossaire_eyebrow": "FILE · 10",
+        "glossaire_h1": ("GLOSSARY OF ", "THE COSMOS"),
+        "glossaire_intro": (
+            "The words of the dossier, explained as they appear in videos and press "
+            "coverage, without endorsing the claims reported."
+        ),
+        "glossaire_note": "Definitions describe the claims, not established facts.",
+        "glossaire_entrees": [
+            {"terme": "Agartha", "definition": "A network of underground cities of light whose existence he claims.", "source": "Vice · 2017"},
+            {"terme": "Aldebaran", "definition": "The planet he says he was taken to at five by a ship of the Virgin Mary.", "source": "La Soundboard"},
+            {"terme": "Buddhas (five)", "definition": "An illumination he says he received, turning his cells into “golden light”.", "source": "La Soundboard"},
+            {"terme": "City of light", "definition": "A retreat and wellbeing centre envisioned in the Aude, Brazil and Quebec.", "source": "L'Indépendant · 2016"},
+            {"terme": "Cosmic Christ", "definition": "A title he has given himself since 2012, picked up by the press and then the internet.", "source": "Le Parisien · 2012"},
+            {"terme": "Elvita", "definition": "A company created in 2004, presented as a software publisher and the basis of his governance.", "source": "Wikipedia"},
+            {"terme": "Great Monarch", "definition": "One of the messianic titles he claims in his candidacy announcements.", "source": "20 Minutes · 2026"},
+            {"terme": "Collective hallucination", "definition": "A line that became a TikTok meme in late 2023, linked to dancing snakes and monkeys.", "source": "TikTok · 2023"},
+            {"terme": "Green Man / Sylvanus", "definition": "Identities he claims after a visit to the forest of Brocéliande.", "source": "Vice · 2017"},
+            {"terme": "Oriana", "definition": "The “soul name” he says he received, linked by him to the energy of the Green Man.", "source": "La Soundboard"},
+            {"terme": "Endorsement", "definition": "A candidate's nomination by an elected official: 500 are needed before 12 March 2027.", "source": "20 Minutes · 2026"},
+            {"terme": "Quetzalcoatl", "definition": "The feathered serpent god of the Toltecs, with whom he says he is “connected”.", "source": "La Soundboard"},
+            {"terme": "Reptilians", "definition": "Conspiracy figures he says have infiltrated political leaders.", "source": "Vice · 2017"},
+            {"terme": "Golden ship", "definition": "A 300-metre ship of light he says he has observed on several occasions.", "source": "La Soundboard"},
+        ],
+
+        # --- Press kit ---
+        "kit_eyebrow": "FILE · 11",
+        "kit_h1": ("PRESS ", "KIT"),
+        "kit_intro": (
+            "The essentials to reuse: key figures, quotes, images and sources."
+        ),
+        "kit_avis": (
+            "An independent site, unconnected to Sylvain Durif. Please keep the attribution "
+            "and documentary context when reusing any material."
+        ),
+        "kit_bref": "AT A GLANCE",
+        "kit_bref_titre": "Four key figures",
+        "kit_citations": "QUOTES",
+        "kit_citations_titre": "Three lines to quote",
+        "kit_attribution": "Durif Files — a documentary and satirical dossier.",
+        "kit_copier": "Copy",
+        "kit_copie": "Copied!",
+        "kit_echec": "Could not copy",
+        "kit_visuels": "IMAGES",
+        "kit_visuels_titre": "Portrait and campaign logo",
+        "kit_telecharger": "Download ↗",
+        "kit_sources": "SOURCES",
+        "kit_sources_titre": "Read before writing",
+        "kit_contact": "ABOUT",
+        "kit_contact_titre": "An open archive",
+        "kit_contact_texte": (
+            "This dossier gathers remarks reported by the press and taken from public "
+            "videos. It endorses none of the claims quoted and takes no part in the "
+            "presidential campaign."
+        ),
         "js_signal_perdu": "Signal lost, try again",
         "js_reception": "Receiving signal…",
         "js_hors_portee": "The ship is out of range. Try again.",
@@ -519,6 +795,26 @@ META = {
             "description": "Questions fréquentes sur Sylvain Durif : qui il est, pourquoi il se dit Christ cosmique, ses récits d'abduction, le mème de l'hallucination collective et sa candidature 2027.",
             "keywords": "FAQ Sylvain Durif, Christ cosmique questions, abduction Aldébaran, hallucination collective, candidature 2027",
         },
+        "carte": {
+            "titre": "Carte du cosmos de Sylvain Durif — Nantua, Bugarach, Aldébaran",
+            "description": "Atlas schématique des lieux du dossier Durif : Nantua, Bugarach, Arques, Brocéliande, Montréal, Québec, Fort Queyras, Montauban et Aldébaran.",
+            "keywords": "carte Sylvain Durif, Bugarach, Nantua, Arques, Brocéliande, Fort Queyras, Aldébaran, atlas cosmique",
+        },
+        "archives": {
+            "titre": "Archives vidéo et presse de Sylvain Durif — Christ cosmique",
+            "description": "Six fiches d'archives sur Sylvain Durif : abduction par la Vierge Marie, Bugarach 2012, serpents et singes, candidature 2027, siège du Cosmos et soundboard.",
+            "keywords": "archives Sylvain Durif, vidéo abduction Vierge Marie, Bugarach 2012, hallucination collective, soundboard, candidature 2027",
+        },
+        "glossaire": {
+            "titre": "Glossaire du cosmos selon Sylvain Durif",
+            "description": "Lexique documenté des termes employés par Sylvain Durif et repris par la presse : Agartha, Oriana, Elvita, cité de lumière, Quetzalcoatl, reptiliens et vaisseaux dorés.",
+            "keywords": "glossaire Sylvain Durif, lexique Christ cosmique, Agartha, Oriana, Elvita, Homme Vert, Quetzalcoatl, vaisseau doré",
+        },
+        "kit_presse": {
+            "titre": "Kit presse — Dossier Durif, le Christ cosmique",
+            "description": "Chiffres clés, répliques à citer, visuels téléchargeables et sources du dossier documentaire et parodique consacré à Sylvain Durif.",
+            "keywords": "kit presse Sylvain Durif, dossier de presse Christ cosmique, citations Durif, logo campagne 2027, sources dossier Durif",
+        },
     },
     "en": {
         "index": {
@@ -590,6 +886,26 @@ META = {
             "titre": "FAQ about Sylvain Durif — The Cosmic Christ",
             "description": "Frequently asked questions about Sylvain Durif: who he is, why he calls himself the Cosmic Christ, his abduction stories, the collective hallucination meme and his 2027 run.",
             "keywords": "Sylvain Durif FAQ, Cosmic Christ questions, Aldebaran abduction, collective hallucination, 2027 candidacy",
+        },
+        "carte": {
+            "titre": "The cosmic map of Sylvain Durif — Nantua, Bugarach, Aldebaran",
+            "description": "A schematic atlas of the Durif dossier: Nantua, Bugarach, Arques, Brocéliande, Montreal, Quebec, Fort Queyras, Montauban and Aldebaran.",
+            "keywords": "Sylvain Durif map, Bugarach, Nantua, Arques, Brocéliande, Fort Queyras, Aldebaran, cosmic atlas",
+        },
+        "archives": {
+            "titre": "Video and press archives of Sylvain Durif — Cosmic Christ",
+            "description": "Six archive entries on Sylvain Durif: abduction by the Virgin Mary, Bugarach 2012, snakes and monkeys, the 2027 candidacy, the headquarters of the Cosmos and the soundboard.",
+            "keywords": "Sylvain Durif archives, Virgin Mary abduction video, Bugarach 2012, collective hallucination, soundboard, 2027 candidacy",
+        },
+        "glossaire": {
+            "titre": "Glossary of the cosmos according to Sylvain Durif",
+            "description": "A documented lexicon of terms used by Sylvain Durif and picked up by the press: Agartha, Oriana, Elvita, city of light, Quetzalcoatl, reptilians and golden ships.",
+            "keywords": "Sylvain Durif glossary, Cosmic Christ lexicon, Agartha, Oriana, Elvita, Green Man, Quetzalcoatl, golden ship",
+        },
+        "kit_presse": {
+            "titre": "Press kit — Durif Files, the Cosmic Christ",
+            "description": "Key figures, quotes, downloadable images and sources from the documentary and satirical dossier on Sylvain Durif.",
+            "keywords": "Sylvain Durif press kit, Cosmic Christ press dossier, Durif quotes, 2027 campaign logo, Durif dossier sources",
         },
     },
 }

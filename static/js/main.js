@@ -269,3 +269,17 @@ if (donneesJeux) {
         afficherParrainages();
     });
 }
+
+// Copie des citations du kit presse
+document.querySelectorAll("[data-copier]").forEach((bouton) => {
+    bouton.addEventListener("click", async () => {
+        const cible = document.getElementById(bouton.dataset.copier);
+        if (!cible) return;
+        try {
+            await navigator.clipboard.writeText(cible.innerText.trim());
+            bouton.textContent = bouton.dataset.succes;
+        } catch (erreur) {
+            bouton.textContent = bouton.dataset.echec;
+        }
+    });
+});

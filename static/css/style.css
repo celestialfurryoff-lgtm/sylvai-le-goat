@@ -136,17 +136,12 @@ main, .site-header, .bandeau, .site-footer { position: relative; z-index: 1; }
 }
 
 .bandeau-interne {
-    display: flex;
-    gap: 2.5rem;
-    width: max-content;
+    text-align: center;
     font-family: "DM Mono", monospace;
-    font-size: .72rem;
-    letter-spacing: .2em;
+    font-size: .68rem;
+    letter-spacing: .24em;
     font-weight: 500;
-    animation: defilement 28s linear infinite;
 }
-
-@keyframes defilement { to { transform: translateX(-50%); } }
 
 /* ---------- Hero ---------- */
 
@@ -558,7 +553,10 @@ main, .site-header, .bandeau, .site-footer { position: relative; z-index: 1; }
     .vaisseau { transform: translateX(-50%) scale(.75); top: 1.5rem; }
     .hero h1 { padding-top: 3rem; }
     .citation { grid-template-columns: 1fr; gap: .2rem; }
-    .bandeau-interne { gap: 1.2rem; }
+    .bandeau-interne { font-size: .6rem; letter-spacing: .16em; }
+    .carte-cadre { aspect-ratio: auto; min-height: 300px; }
+    .carte-point { width: 34px; height: 34px; font-size: .6rem; }
+    .archive-carte { padding: 1.1rem; }
 }
 
 /* ---------- Jeux, FAQ et filtres ---------- */
@@ -643,6 +641,90 @@ main, .site-header, .bandeau, .site-footer { position: relative; z-index: 1; }
 .faq-item summary::before { content: "+ "; }
 .faq-item[open] summary::before { content: "− "; }
 .faq-item p { padding: 0 1.3rem 1.2rem; color: var(--gris); line-height: 1.7; }
+
+/* ---------- Atlas cosmique ---------- */
+
+.carte-cadre {
+    position: relative;
+    aspect-ratio: 2 / 1;
+    min-height: 340px;
+    border: 1px solid var(--bordure);
+    background: radial-gradient(circle at 50% 50%, rgba(139, 108, 255, .12), rgba(7, 7, 14, .9) 70%);
+    overflow: hidden;
+}
+.carte-fond { position: absolute; inset: 0; width: 100%; height: 100%; }
+.carte-point {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--or);
+    border-radius: 50%;
+    background: rgba(7, 7, 14, .9);
+    box-shadow: 0 0 18px rgba(242, 199, 92, .35);
+    color: var(--or);
+    font-family: "DM Mono", monospace;
+    font-size: .7rem;
+    text-decoration: none;
+    transition: transform .2s, background .2s;
+}
+.carte-point:hover, .carte-point:focus-visible { transform: translate(-50%, -50%) scale(1.12); background: var(--or); color: var(--nuit); }
+.carte-note { margin: 1rem 0 0; font-family: "DM Mono", monospace; font-size: .7rem; color: var(--gris); }
+.lieux-liste { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; max-width: 1120px; margin: 0 auto; }
+.lieu-carte {
+    scroll-margin-top: 100px;
+    padding: 1.3rem;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-top: 2px solid var(--or);
+    background: rgba(7, 7, 14, .5);
+    transition: border-color .2s, box-shadow .2s;
+}
+.lieu-carte:target { border-color: var(--or); box-shadow: 0 0 30px rgba(242, 199, 92, .18); }
+.lieu-numero { font-family: "DM Mono", monospace; color: var(--or); font-size: .75rem; }
+.lieu-carte h3 { margin: .3rem 0 .1rem; font-size: 1.15rem; }
+.lieu-meta { margin: 0 0 .7rem; font-family: "DM Mono", monospace; font-size: .68rem; letter-spacing: .08em; color: var(--or-pale); }
+.lieu-carte p:last-child { margin: 0; color: #c6c0dc; font-size: .88rem; }
+
+/* ---------- Archives ---------- */
+
+.archives-liste { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.2rem; max-width: 1120px; margin: 0 auto; }
+.archive-carte { padding: 1.5rem; border: 1px solid var(--bordure); background: rgba(20, 17, 40, .55); }
+.archive-entete { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: .8rem; }
+.archive-numero { font-family: "DM Mono", monospace; color: var(--or); font-size: .8rem; padding-top: .35rem; }
+.archive-carte h3 { margin: 0; font-size: 1.15rem; }
+.archive-meta { margin: .15rem 0 0; font-family: "DM Mono", monospace; font-size: .68rem; color: var(--gris); }
+.archive-carte > p { color: #ccc6e5; font-size: .9rem; }
+.archive-reperes { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: .4rem; }
+.archive-reperes li { font-size: .85rem; color: #c6c0dc; }
+.archive-reperes b { font-family: "DM Mono", monospace; color: var(--or); margin-right: .6rem; }
+.archive-transcription { border-top: 1px solid rgba(255, 255, 255, .08); padding-top: .8rem; }
+.archive-transcription summary { cursor: pointer; color: var(--or); font-weight: 700; font-size: .85rem; }
+.archive-transcription p { margin: .6rem 0 0; font-size: .86rem; color: var(--gris); font-style: italic; }
+.archive-source { display: inline-block; margin-top: 1rem; font-size: .8rem; color: var(--or-pale); text-decoration: none; border-bottom: 1px solid var(--bordure); }
+.archive-source:hover { border-color: var(--or); }
+
+/* ---------- Glossaire ---------- */
+
+.glossaire-grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; max-width: 1120px; margin: 0 auto; }
+.glossaire-item { padding: 1.3rem; border: 1px solid rgba(255, 255, 255, .08); border-left: 3px solid var(--violet); background: rgba(20, 17, 40, .5); }
+.glossaire-item h3 { margin: 0 0 .5rem; font-size: 1.05rem; color: var(--or-pale); }
+.glossaire-item p { margin: 0 0 .7rem; font-size: .88rem; color: #c6c0dc; }
+
+/* ---------- Kit presse ---------- */
+
+.kit-citations { display: grid; gap: 1rem; max-width: 860px; margin: 0 auto; }
+.kit-citation { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; padding: 1.2rem 1.4rem; border: 1px solid var(--bordure); background: rgba(7, 7, 14, .55); }
+.kit-bloc { flex: 1 1 320px; }
+.kit-bloc blockquote { margin: 0; color: var(--or-pale); font-style: italic; }
+.kit-attribution { margin: .5rem 0 0; font-family: "DM Mono", monospace; font-size: .68rem; color: var(--gris); }
+.kit-visuels { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; max-width: 1120px; margin: 0 auto; }
+.kit-visual { border: 1px solid rgba(255, 255, 255, .08); background: rgba(20, 17, 40, .5); padding: .8rem; }
+.kit-visual img { display: block; width: 100%; height: 150px; object-fit: cover; background: #07070e; }
+.kit-visual p { font-size: .78rem; color: #c6c0dc; margin: .7rem 0; }
+.kit-visual a { color: var(--or); font-size: .78rem; text-decoration: none; }
+.kit-visual a:hover { text-decoration: underline; }
 
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; scroll-behavior: auto !important; }

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block titre %}{{ meta.archives.titre }}{% endblock %}
+{% block description %}{{ meta.archives.description }}{% endblock %}
+{% block keywords %}{{ meta.archives.keywords }}{% endblock %}
+{% block contenu %}
+
+<section class="page-tete">
+    <p class="eyebrow">{{ t.archives_eyebrow }}</p>
+    <h1>{{ t.archives_h1[0] }}<span>{{ t.archives_h1[1] }}</span></h1>
+    <p class="page-intro">{{ t.archives_intro }}</p>
+    <p class="attention">{{ t.archives_avis }}</p>
+</section>
+
+<section class="section">
+    <div class="archives-liste">
+        {% for fiche in t.archives_fiches %}
+            <article class="archive-carte">
+                <div class="archive-entete">
+                    <span class="archive-numero">{{ '%02d'|format(loop.index) }}</span>
+                    <div>
+                        <h3>{{ fiche.titre }}</h3>
+                        <p class="archive-meta">{{ fiche.format }} · {{ fiche.date }}</p>
+                    </div>
+                </div>
+                <p>{{ fiche.description }}</p>
+                <ol class="archive-reperes">
+                    {% for temps, texte in fiche['repères'] %}
+                        <li><b>{{ temps }}</b> {{ texte }}</li>
+                    {% endfor %}
+                </ol>
+                <details class="archive-transcription">
+                    <summary>{{ t.archives_lire }}</summary>
+                    {% for ligne in fiche.transcription %}
+                        <p>{{ ligne }}</p>
+                    {% endfor %}
+                </details>
+                <a class="archive-source" href="{{ fiche.source_url }}" target="_blank" rel="noopener noreferrer">{{ t.archives_source }} — {{ fiche.source_nom }}</a>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

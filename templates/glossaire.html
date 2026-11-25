@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block titre %}{{ meta.glossaire.titre }}{% endblock %}
+{% block description %}{{ meta.glossaire.description }}{% endblock %}
+{% block keywords %}{{ meta.glossaire.keywords }}{% endblock %}
+{% block contenu %}
+
+<section class="page-tete">
+    <p class="eyebrow">{{ t.glossaire_eyebrow }}</p>
+    <h1>{{ t.glossaire_h1[0] }}<span>{{ t.glossaire_h1[1] }}</span></h1>
+    <p class="page-intro">{{ t.glossaire_intro }}</p>
+    <p class="attention">{{ t.glossaire_note }}</p>
+</section>
+
+<section class="section">
+    <div class="glossaire-grille">
+        {% for entree in t.glossaire_entrees %}
+            <article class="glossaire-item">
+                <h3>{{ entree.terme }}</h3>
+                <p>{{ entree.definition }}</p>
+                <span class="source">{{ entree.source }}</span>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

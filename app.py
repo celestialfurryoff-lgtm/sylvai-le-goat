@@ -134,6 +134,30 @@ def faq(langue):
     return rendu("faq.html", langue)
 
 
+@app.route("/carte", defaults={"langue": "fr"})
+@app.route("/en/carte", defaults={"langue": "en"})
+def carte(langue):
+    return rendu("carte.html", langue)
+
+
+@app.route("/archives", defaults={"langue": "fr"})
+@app.route("/en/archives", defaults={"langue": "en"})
+def archives(langue):
+    return rendu("archives.html", langue)
+
+
+@app.route("/glossaire", defaults={"langue": "fr"})
+@app.route("/en/glossaire", defaults={"langue": "en"})
+def glossaire(langue):
+    return rendu("glossaire.html", langue)
+
+
+@app.route("/kit-presse", defaults={"langue": "fr"})
+@app.route("/en/kit-presse", defaults={"langue": "en"})
+def kit_presse(langue):
+    return rendu("kit-presse.html", langue)
+
+
 # ---------------------------------------------------------------------------
 # API : ?lang=en permet au JavaScript de rester dans la langue courante
 # ---------------------------------------------------------------------------
@@ -186,6 +210,10 @@ PAGES_INDEXABLES = [
     ("chronologie", "0.8", "monthly"),
     ("jeux", "0.7", "monthly"),
     ("faq", "0.7", "monthly"),
+    ("carte", "0.7", "monthly"),
+    ("archives", "0.6", "monthly"),
+    ("glossaire", "0.6", "monthly"),
+    ("kit_presse", "0.5", "yearly"),
 ]
 
 
