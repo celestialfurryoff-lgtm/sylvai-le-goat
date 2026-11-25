@@ -46,7 +46,7 @@ static/images/    4 photos/logos téléchargés depuis Wikimedia Commons
 | `/chronologie` | De 1969 à 2027 + sources |
 | `/jeux` | 3 mini-jeux : bingo, quiz, parrainages |
 | `/faq` | Questions fréquentes + données `FAQPage` |
-| `/carte` | Atlas schématique des lieux du dossier |
+| `/carte` | Carte OpenStreetMap (Leaflet) des lieux du dossier |
 | `/archives` | 6 fiches vidéo/presse avec repères et transcriptions |
 | `/glossaire` | Lexique bilingue des termes du cosmos |
 | `/kit-presse` | Chiffres, citations copiables, visuels et sources |

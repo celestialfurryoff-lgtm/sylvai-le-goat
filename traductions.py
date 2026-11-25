@@ -224,35 +224,35 @@ UI = {
         "carte_eyebrow": "DOSSIER · 08",
         "carte_h1": ("L'ATLAS ", "COSMIQUE"),
         "carte_intro": (
-            "Les lieux du récit, de Nantua à Aldébaran. Une géographie du dossier, "
-            "pas une géographie des faits."
+            "Les lieux du récit, de Nantua à Aldébaran, replacés sur une carte OpenStreetMap. "
+            "Une géographie des lieux cités, pas une validation des affirmations."
         ),
         "carte_note": (
-            "Carte schématique : les points sont placés pour suivre le récit, "
-            "sans respect des distances ni de l'échelle."
+            "Carte OpenStreetMap : les points suivent les coordonnées réelles des lieux documentés. "
+            "Aldébaran, hors carte, reste dans la liste ci-dessous ; le Brésil est positionné à titre indicatif."
         ),
         "carte_legende": "Sélectionnez un point pour lire sa fiche.",
         "carte_fiche_titre": "Les étapes du récit",
         "carte_lieux": [
-            {"numero": "01", "x": 26, "y": 22, "titre": "Nantua", "meta": "1969 · Naissance",
+            {"numero": "01", "lat": 46.1534, "lon": 5.6059, "titre": "Nantua", "meta": "1969 · Naissance",
              "texte": "23 août 1969 : naissance de Sylvain Pierre Durif dans l'Ain. Le point de départ de l'archive."},
-            {"numero": "02", "x": 39, "y": 46, "titre": "Bugarach", "meta": "2012 · Révélation",
+            {"numero": "02", "lat": 42.8757, "lon": 2.3507, "titre": "Bugarach", "meta": "2012 · Révélation",
              "texte": "En décembre 2012, le village est au centre des prédictions de fin du monde. Il y déclare : « J'incarne l'énergie du Christ cosmique »."},
-            {"numero": "03", "x": 32, "y": 68, "titre": "Arques", "meta": "2014 · 7 voix",
+            {"numero": "03", "lat": 42.9529, "lon": 2.3748, "titre": "Arques", "meta": "2014 · 7 voix",
              "texte": "Candidat aux municipales de 2014 dans l'Aude : 7 voix, 5,03 % des suffrages. Son programme évoque la télépathie."},
-            {"numero": "04", "x": 15, "y": 40, "titre": "Brocéliande", "meta": "2017 · Druides",
+            {"numero": "04", "lat": 48.0194, "lon": -2.1735, "titre": "Brocéliande", "meta": "2017 · Druides",
              "texte": "Une promenade en forêt de Paimpont l'aurait mis « en lien avec l'énergie de Merlin ». Son nom d'âme serait Oriana."},
-            {"numero": "05", "x": 13, "y": 75, "titre": "Montréal", "meta": "2012 · Ubiquité",
+            {"numero": "05", "lat": 45.5032, "lon": -73.5698, "titre": "Montréal", "meta": "2012 · Ubiquité",
              "texte": "Il affirme au Parisien pouvoir entrer dans la cuisine de quelqu'un qui l'invite : l'exemple le plus cité de son « don d'ubiquité »."},
-            {"numero": "06", "x": 19, "y": 12, "titre": "Québec", "meta": "2004 / 2008 · Elvita",
+            {"numero": "06", "lat": 46.8137, "lon": -71.2084, "titre": "Québec", "meta": "2004 / 2008 · Elvita",
              "texte": "La société Elvita est créée en 2004. En 2008, un dénommé George lui aurait dit : « Tu t'appelles Pierre, ça fait 20 ans que je t'attends. »"},
-            {"numero": "07", "x": 60, "y": 84, "titre": "Brésil", "meta": "2016 · Cité de lumière",
-             "texte": "Le projet de « cité de lumière » est imaginé dans la haute vallée de l'Aude, au Brésil et au Québec à partir de 2016."},
-            {"numero": "08", "x": 64, "y": 34, "titre": "Fort Queyras", "meta": "2022 · Siège du Cosmos",
+            {"numero": "07", "lat": -10.3333, "lon": -53.2000, "titre": "Brésil", "meta": "2016 · Cité de lumière",
+             "texte": "Le projet de « cité de lumière » est imaginé dans la haute vallée de l'Aude, au Brésil et au Québec à partir de 2016. Position indicative au centre du pays."},
+            {"numero": "08", "lat": 44.7560, "lon": 6.7906, "titre": "Fort Queyras", "meta": "2022 · Siège du Cosmos",
              "texte": "En 2022, il annonce vouloir racheter le fort pour 221 millions d'euros et y installer le « siège du Cosmos »."},
-            {"numero": "09", "x": 47, "y": 63, "titre": "Montauban", "meta": "2026 · Campagne",
+            {"numero": "09", "lat": 44.0176, "lon": 1.3550, "titre": "Montauban", "meta": "2026 · Campagne",
              "texte": "Meeting du 18 novembre 2026, au cœur de la campagne annoncée pour la présidentielle de 2027."},
-            {"numero": "10", "x": 88, "y": 17, "titre": "Aldébaran", "meta": "Enfance · Hors carte",
+            {"numero": "10", "lat": None, "lon": None, "titre": "Aldébaran", "meta": "Enfance · Hors carte",
              "texte": "Lieu hors carte : à cinq ans, il raconte un voyage sur Aldébaran à bord d'un vaisseau de la Vierge Marie."},
         ],
 
@@ -577,35 +577,35 @@ UI = {
         "carte_eyebrow": "FILE · 08",
         "carte_h1": ("THE COSMIC ", "ATLAS"),
         "carte_intro": (
-            "The places in the story, from Nantua to Aldebaran. A geography of the "
-            "dossier, not of the facts."
+            "The places in the story, from Nantua to Aldebaran, plotted on an OpenStreetMap map. "
+            "A geography of the places mentioned, not an endorsement of the claims."
         ),
         "carte_note": (
-            "Schematic map: points are placed to follow the story, with no regard "
-            "for real distances or scale."
+            "OpenStreetMap: the markers follow the real coordinates of the documented places. "
+            "Aldebaran, off the map, stays in the list below; Brazil is positioned approximately."
         ),
         "carte_legende": "Select a point to read its entry.",
         "carte_fiche_titre": "Milestones of the story",
         "carte_lieux": [
-            {"numero": "01", "x": 26, "y": 22, "titre": "Nantua", "meta": "1969 · Birth",
+            {"numero": "01", "lat": 46.1534, "lon": 5.6059, "titre": "Nantua", "meta": "1969 · Birth",
              "texte": "23 August 1969: birth of Sylvain Pierre Durif in the Ain. The starting point of the archive."},
-            {"numero": "02", "x": 39, "y": 46, "titre": "Bugarach", "meta": "2012 · Revelation",
+            {"numero": "02", "lat": 42.8757, "lon": 2.3507, "titre": "Bugarach", "meta": "2012 · Revelation",
              "texte": "In December 2012 the village was at the centre of doomsday predictions. There he said: “I embody the energy of the Cosmic Christ”."},
-            {"numero": "03", "x": 32, "y": 68, "titre": "Arques", "meta": "2014 · 7 votes",
+            {"numero": "03", "lat": 42.9529, "lon": 2.3748, "titre": "Arques", "meta": "2014 · 7 votes",
              "texte": "Candidate in the 2014 local election in the Aude: 7 votes, 5.03% of the ballot. His platform mentioned telepathy."},
-            {"numero": "04", "x": 15, "y": 40, "titre": "Brocéliande", "meta": "2017 · Druids",
+            {"numero": "04", "lat": 48.0194, "lon": -2.1735, "titre": "Brocéliande", "meta": "2017 · Druids",
              "texte": "A walk in the forest of Paimpont apparently put him “in touch with the energy of Merlin”. His soul name is said to be Oriana."},
-            {"numero": "05", "x": 13, "y": 75, "titre": "Montreal", "meta": "2012 · Ubiquity",
+            {"numero": "05", "lat": 45.5032, "lon": -73.5698, "titre": "Montreal", "meta": "2012 · Ubiquity",
              "texte": "He told Le Parisien he could enter someone's kitchen in Montreal: the most quoted example of his “gift of ubiquity”."},
-            {"numero": "06", "x": 19, "y": 12, "titre": "Quebec", "meta": "2004 / 2008 · Elvita",
+            {"numero": "06", "lat": 46.8137, "lon": -71.2084, "titre": "Quebec", "meta": "2004 / 2008 · Elvita",
              "texte": "The company Elvita was created in 2004. In 2008 a man named George reportedly told him: “Your name is Pierre, I have been waiting for you for 20 years.”"},
-            {"numero": "07", "x": 60, "y": 84, "titre": "Brazil", "meta": "2016 · City of light",
-             "texte": "The “city of light” project was envisioned in the upper Aude valley, in Brazil and in Quebec from 2016 onwards."},
-            {"numero": "08", "x": 64, "y": 34, "titre": "Fort Queyras", "meta": "2022 · HQ of the Cosmos",
+            {"numero": "07", "lat": -10.3333, "lon": -53.2000, "titre": "Brazil", "meta": "2016 · City of light",
+             "texte": "The “city of light” project was envisioned in the upper Aude valley, in Brazil and in Quebec from 2016 onwards. Approximate position at the centre of the country."},
+            {"numero": "08", "lat": 44.7560, "lon": 6.7906, "titre": "Fort Queyras", "meta": "2022 · HQ of the Cosmos",
              "texte": "In 2022 he announced plans to buy the fort for €221 million and set up the “headquarters of the Cosmos” there."},
-            {"numero": "09", "x": 47, "y": 63, "titre": "Montauban", "meta": "2026 · Campaign",
+            {"numero": "09", "lat": 44.0176, "lon": 1.3550, "titre": "Montauban", "meta": "2026 · Campaign",
              "texte": "Rally on 18 November 2026, in the middle of the campaign announced for the 2027 presidential election."},
-            {"numero": "10", "x": 88, "y": 17, "titre": "Aldebaran", "meta": "Childhood · Off map",
+            {"numero": "10", "lat": None, "lon": None, "titre": "Aldebaran", "meta": "Childhood · Off map",
              "texte": "Off-map location: at the age of five he describes a journey to Aldebaran aboard a ship of the Virgin Mary."},
         ],
 
@@ -797,7 +797,7 @@ META = {
         },
         "carte": {
             "titre": "Carte du cosmos de Sylvain Durif — Nantua, Bugarach, Aldébaran",
-            "description": "Atlas schématique des lieux du dossier Durif : Nantua, Bugarach, Arques, Brocéliande, Montréal, Québec, Fort Queyras, Montauban et Aldébaran.",
+            "description": "Carte OpenStreetMap des lieux du dossier Durif : Nantua, Bugarach, Arques, Brocéliande, Montréal, Québec, Fort Queyras, Montauban et Aldébaran.",
             "keywords": "carte Sylvain Durif, Bugarach, Nantua, Arques, Brocéliande, Fort Queyras, Aldébaran, atlas cosmique",
         },
         "archives": {
@@ -889,7 +889,7 @@ META = {
         },
         "carte": {
             "titre": "The cosmic map of Sylvain Durif — Nantua, Bugarach, Aldebaran",
-            "description": "A schematic atlas of the Durif dossier: Nantua, Bugarach, Arques, Brocéliande, Montreal, Quebec, Fort Queyras, Montauban and Aldebaran.",
+            "description": "An OpenStreetMap map of the Durif dossier: Nantua, Bugarach, Arques, Brocéliande, Montreal, Quebec, Fort Queyras, Montauban and Aldebaran.",
             "keywords": "Sylvain Durif map, Bugarach, Nantua, Arques, Brocéliande, Fort Queyras, Aldebaran, cosmic atlas",
         },
         "archives": {

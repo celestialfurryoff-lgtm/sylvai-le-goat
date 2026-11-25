@@ -554,8 +554,7 @@ main, .site-header, .bandeau, .site-footer { position: relative; z-index: 1; }
     .hero h1 { padding-top: 3rem; }
     .citation { grid-template-columns: 1fr; gap: .2rem; }
     .bandeau-interne { font-size: .6rem; letter-spacing: .16em; }
-    .carte-cadre { aspect-ratio: auto; min-height: 300px; }
-    .carte-point { width: 34px; height: 34px; font-size: .6rem; }
+    .carte-osm { height: 380px; }
     .archive-carte { padding: 1.1rem; }
 }
 
@@ -644,34 +643,24 @@ main, .site-header, .bandeau, .site-footer { position: relative; z-index: 1; }
 
 /* ---------- Atlas cosmique ---------- */
 
-.carte-cadre {
-    position: relative;
-    aspect-ratio: 2 / 1;
-    min-height: 340px;
+.carte-osm {
+    width: 100%;
+    height: 520px;
     border: 1px solid var(--bordure);
-    background: radial-gradient(circle at 50% 50%, rgba(139, 108, 255, .12), rgba(7, 7, 14, .9) 70%);
-    overflow: hidden;
+    background: var(--encre);
 }
-.carte-fond { position: absolute; inset: 0; width: 100%; height: 100%; }
-.carte-point {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    display: grid;
-    place-items: center;
-    width: 42px;
-    height: 42px;
-    border: 1px solid var(--or);
-    border-radius: 50%;
-    background: rgba(7, 7, 14, .9);
-    box-shadow: 0 0 18px rgba(242, 199, 92, .35);
-    color: var(--or);
-    font-family: "DM Mono", monospace;
-    font-size: .7rem;
-    text-decoration: none;
-    transition: transform .2s, background .2s;
-}
-.carte-point:hover, .carte-point:focus-visible { transform: translate(-50%, -50%) scale(1.12); background: var(--or); color: var(--nuit); }
 .carte-note { margin: 1rem 0 0; font-family: "DM Mono", monospace; font-size: .7rem; color: var(--gris); }
+.carte-osm .leaflet-container { background: var(--encre); }
+.carte-osm .leaflet-popup-content-wrapper,
+.carte-osm .leaflet-popup-tip {
+    background: var(--nuit-2);
+    color: var(--texte);
+    border: 1px solid var(--bordure);
+}
+.carte-osm .leaflet-popup-content { font-size: .82rem; line-height: 1.5; }
+.carte-osm .leaflet-popup-content strong { color: var(--or); }
+.carte-osm .leaflet-control-attribution { background: rgba(7, 7, 14, .8); color: var(--gris); font-size: .65rem; }
+.carte-osm .leaflet-control-attribution a { color: var(--or-pale); }
 .lieux-liste { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; max-width: 1120px; margin: 0 auto; }
 .lieu-carte {
     scroll-margin-top: 100px;
@@ -681,7 +670,8 @@ main, .site-header, .bandeau, .site-footer { position: relative; z-index: 1; }
     background: rgba(7, 7, 14, .5);
     transition: border-color .2s, box-shadow .2s;
 }
-.lieu-carte:target { border-color: var(--or); box-shadow: 0 0 30px rgba(242, 199, 92, .18); }
+.lieu-carte:target,
+.lieu-carte.surligne { border-color: var(--or); box-shadow: 0 0 30px rgba(242, 199, 92, .18); }
 .lieu-numero { font-family: "DM Mono", monospace; color: var(--or); font-size: .75rem; }
 .lieu-carte h3 { margin: .3rem 0 .1rem; font-size: 1.15rem; }
 .lieu-meta { margin: 0 0 .7rem; font-family: "DM Mono", monospace; font-size: .68rem; letter-spacing: .08em; color: var(--or-pale); }
